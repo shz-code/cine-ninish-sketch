@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="input.css">
+    <link rel="stylesheet" href="output.css">
+
+    <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap");
+
+        :root {
+            --primary-color: #6d28d9;
+            --secondary-color: #2e1065;
+            --border-color: #e5e7eb;
+            --bg-color: #F4F7FD;
+        }
+
+        body {
+            background: var(--bg-color);
+            font-family: "Noto Sans Bengali", sans-serif;
+        }
+
+        .containerNinish {
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        img {
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .step {
+            display: none;
+        }
+        .step.active{
+            display: block;
+        }
+
+        .cineMovie{
+            position: relative;
+            background: url(./movie\ bg.png)no-repeat center center/cover;
+            border-radius: 5px;
+        }
+        
+        .cineMovie::after{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: black;
+            /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
+            opacity: 0.8;
+            border-radius: 5px;
+        }
+
+        .cineStory{
+            position: relative;
+            background: url(./story.png)no-repeat center bottom/cover;
+            border-radius: 5px;
+        }
+        
+        .cineStory::after{
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: black;
+            /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
+            opacity: 0.8;
+            border-radius: 5px;
+        }
+
+        /* .segment {
+            background: #000;
+            color: wheat;
+            padding: 15px 20px 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .segment.selected {
+            background: linear-gradient(60deg,red,blue);
+        } */
+
+        button,a,p {
+            font-size: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="pt-16 px-2">
+        <!-- Announcement -->
+        <!-- Login Steps -->
+        <section class="py-32 containerNinish mx-auto px-2">
+            <!-- Form -->
+            <form method="post" id="preferenceForm">
+                <div class="bg-white max-w-[700px] mx-auto rounded-md shadow-md p-4">
+                    <!-- Steps Container -->
+                    <div class="stepsContainer">
+                        <!-- Steps Header -->
+                        <div class="stepsHeader pb-2 mb-4 border-b flex justify-between">
+                            <h2 class="text-2xl font-semibold">Choose a segment</h2>
+                            <!-- Selected Segments -->
+                            <div id="selectedSegments" class="flex gap-2 items-center">
+                                <!-- Dynamically Added -->
+                                <p class="text-red-600">No segment selected</p>
+                            </div>
+                        </div>
+                        <!-- Steps -->
+                        <div class="steps">
+                            <!-- Step 1 -->
+                            <div class="step step-1">
+                                <div class="stepsBody grid gap-2">
+                                    <!-- cineMovie Segment card -->
+                                    <div class="segment cineMovie flex gap-4 items-center" data-category="cineMovie">
+                                        <div class="segmentImgBox w-20 p-2 z-10">
+                                            <img src="./film-reel.png" alt="">
+                                        </div>
+                                        <div class="details text-white z-10">
+                                            <h3 class="text-xl font-semibold font-mono">Cine Movie</h3>
+                                            <p>Win upto 2 lacs by watching movie</p>
+                                        </div>
+                                    </div>
+                                    <!-- cineStory Segment card -->
+                                    <div class="segment cineStory flex gap-4 items-center" data-category="cineStory">
+                                        <div class="segmentImgBox w-20 p-2 z-10">
+                                            <img src="./book.png" alt="">
+                                        </div>
+                                        <div class="details text-white z-10">
+                                            <h3 class="text-xl font-semibold font-mono z-10">Cine Story</h3>
+                                            <p>Win upto 2 lacs by writing story</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="stepFooter flex justify-end">
+                                    <button type="button" class="btn" id="step-1-next-btn" disabled>
+                                        Next <i class='bx bx-block'></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="step step-2 active">
+                                <div class="stepsBody grid gap-2">
+                                    <!-- cineMovie-movie card -->
+                                    <div class="cineMovie-movie flex gap-4 items-center" data-category="">
+                                        <div class="segmentImgBox w-20 p-2 z-10">
+                                            <img src="./film-reel.png" alt="">
+                                        </div>
+                                        <div class="details text-white z-10">
+                                            <h3 class="text-xl font-semibold font-mono">Cine Movie</h3>
+                                            <p>Win upto 2 lacs by watching movie</p>
+                                        </div>
+                                    </div>
+                                    <!-- cineMovie-series card -->
+                                    <div class="cineMovie-series flex gap-4 items-center" data-category="">
+                                        <div class="segmentImgBox w-20 p-2 z-10">
+                                            <img src="./book.png" alt="">
+                                        </div>
+                                        <div class="details text-white z-10">
+                                            <h3 class="text-xl font-semibold font-mono z-10">Cine Story</h3>
+                                            <p>Win upto 2 lacs by writing story</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="stepFooter flex justify-end gap-2">
+                                    <button type="button" class="btn" id="step-2-prev-btn">
+                                        <i class='bx bx-left-arrow-alt'></i> Previous 
+                                    </button>
+                                    <button type="button" class="btn" id="step-2-next-btn" disabled>
+                                        Next <i class='bx bx-block'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        const formData = {
+            selectedSegments: []
+        }
+
+        // Render selected segments badges
+        const renderSelectedSegments = () => {
+            $("#selectedSegments").html("");
+            formData.selectedSegments.map(item => {
+                $("#selectedSegments").append(`
+                    <span>${item === "cineMovie" ? "Cine Movie" : "Cine Story"} <i class='bx bxs-x-circle text-lg -mt-1 removeSegmentBtn' data-target="${item}"></i></span>
+                `);
+            });
+            if($("#selectedSegments").html().trim() === "")
+            {
+                $("#selectedSegments").html(`<p class="text-red-600">No segment selected</p>`);
+            }
+            removeAction();
+            step1BtnVisibility();
+        }
+
+        // Add segment
+        const addSegment = (category) => {
+            formData.selectedSegments.push(category);
+            // New Render
+            renderSelectedSegments();
+        }
+
+        // Remove segment
+        const removeSegment = (category) => {
+            const newForm = formData.selectedSegments.filter(item => item != category);
+            formData.selectedSegments = newForm;
+            $(`.${category}`).removeClass("selected");
+            // New Render
+            renderSelectedSegments();
+        }
+
+        // Remove Segment Action
+        const removeAction = () => {
+            $(".removeSegmentBtn").each((ind,item) => {
+                item.addEventListener("click" , e => {
+                    let target = e.target.getAttribute("data-target");
+                    removeSegment(target);
+                })
+            });
+        }
+
+        // Step 1 Next Button visibility
+        const step1BtnVisibility = () => {
+            if(formData.selectedSegments.length > 0)
+            {
+                $("#step-1-next-btn").removeAttr("disabled");
+                $("#step-1-next-btn").html(`Next <i class='bx bx-right-arrow-alt'></i>`);
+            }
+            else {
+                $("#step-1-next-btn").attr("disabled",true);
+                $("#step-1-next-btn").html(`Next <i class='bx bx-block'></i>`);
+            }
+        }
+
+        $("document").ready(() => {
+
+            $(".segment").each((ind,item) => {
+                item.addEventListener("click", e => {
+                    item.classList.toggle("selected");
+                    let category = item.getAttribute("data-category");
+                    if(!formData.selectedSegments.includes(category))
+                    {
+                        addSegment(category);
+                    }
+                    else {
+                        removeSegment(category);
+                    }               
+                })
+            });
+
+            // Step 1 Button Action
+            $("#step-1-next-btn").click(e => {
+                if(formData.selectedSegments.includes("cineMovie"))
+                {
+                    $(".step-2").addClass("active");
+                    $(".step-1").removeClass("active");
+                }
+                else if(formData.selectedSegments.length > 0)
+                {
+                    $("#preferenceForm").submit();
+                }
+            })
+            // Step 2 Previous Button Action
+            $("#step-2-prev-btn").click(e => {
+                $(".step-1").addClass("active");
+                $(".step-2").removeClass("active");
+            })
+        })
+    </script>
+</body>
+
+</html>
