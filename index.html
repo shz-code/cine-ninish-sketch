@@ -174,7 +174,7 @@
                                 </div>
                             </div>
                             <!-- Step 2 -->
-                            <div class="step step-2">
+                            <div class="step step-2">                           
                                 <div class="stepsBody grid grid-cols-1 sm:grid-cols-2 gap-2 justify-between">
                                     <!-- cineMovie-movie card -->
                                     <div class="cineMovie-movie movie-card flex gap-4 items-center"
@@ -202,6 +202,9 @@
                             </div>
                             <!-- Step 3 Movies -->
                             <div class="step step-3-movies">
+                                <div class="mb-4 pb-3 border-b" id="movieListDetails">
+                                    
+                                </div>
                                 <div class="stepsBody grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                     <!-- Dynamically Rendered -->
                                 </div>
@@ -216,6 +219,9 @@
                             </div>
                             <!-- Step 3 Series -->
                             <div class="step step-3-series">
+                                <div class="mb-4 pb-3 border-b" id="seriesListDetails">
+                                    
+                                </div>
                                 <div class="stepsBody grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                     <!-- Dynamically Rendered -->
                                 </div>
@@ -297,7 +303,7 @@
                     movies: [
                         {
                             id: 1,
-                            name: "Hannibal"
+                            name: "List 2"
                         },
                         {
                             id: 2,
@@ -543,13 +549,53 @@
             $(".step-3-series").removeClass("active");
         }
 
+        const setupMovieDetailsView = (category) => {
+            $("#movieListDetails").html("");
+
+            const movie = movieBundle.find(item => item.slug === category);
+            
+            let content = `
+                <div class="bg-slate-900 text-white p-4 rounded-md">
+                    <h3 class="text-xl font-semibold font-mono">${movie.name}</h3>
+                    <ul class="bundleList">
+                        `;
+
+            movie.movies.map((item) => {
+                content += `<li><i class='bx bxs-checkbox-checked'></i> ${item.name}</li>`;
+            });
+
+            content += `</ul></div>`;
+            $("#movieListDetails").html(content);
+        }
+
+        const setupSeriesDetailsView = (category) => {
+            $("#seriesListDetails").html("");
+
+            const series = seriesBundle.find(item => item.slug === category);
+            
+            let content = `
+                <div class="bg-slate-900 text-white p-4 rounded-md">
+                    <h3 class="text-xl font-semibold font-mono">${series.name}</h3>
+                    <ul class="bundleList">
+                        `;
+
+            series.series.map((item) => {
+                content += `<li><i class='bx bxs-checkbox-checked'></i> ${item.name}</li>`;
+            });
+
+            content += `</ul></div>`;
+            $("#seriesListDetails").html(content);
+        }
+
         const initializeMovieBundleListener = () => {
             // BundleCard
             formData.selectedSeriesBundle = "";
             $(".bundleCard").each((ind, item) => {
                 item.addEventListener("click", () => {
                     let category = item.getAttribute("data-bundle");
+                    
                     if (!formData.selectedSegments.includes(category)) {
+                        setupMovieDetailsView(category);
                         removePrevSelectedMovieBundle();
                         addMovieBundle(category);
                     }
@@ -565,6 +611,7 @@
                 item.addEventListener("click", () => {
                     let category = item.getAttribute("data-bundle");
                     if (!formData.selectedSegments.includes(category)) {
+                        setupSeriesDetailsView(category);
                         removePrevSelectedSeriesBundle();
                         addSeriesBundle(category);
                     }
