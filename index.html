@@ -8,121 +8,40 @@
     <link rel="stylesheet" href="input.css">
     <link rel="stylesheet" href="output.css">
 
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
-
-    <style>
-        @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap");
-
-        :root {
-            --primary-color: #6d28d9;
-            --secondary-color: #2e1065;
-            --border-color: #e5e7eb;
-            --bg-color: #F4F7FD;
-        }
-
-        body {
-            background: var(--bg-color);
-            font-family: "Noto Sans Bengali", sans-serif;
-        }
-
-        .containerNinish {
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        img {
-            width: 100%;
-            object-fit: cover;
-        }
-
-        .step {
-            display: none;
-        }
-
-        .step.active {
-            display: block;
-        }
-
-        .cineMovie {
-            position: relative;
-            background: url(./movie\ bg.png)no-repeat center center/cover;
-            border-radius: 5px;
-        }
-
-        .cineMovie::after {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: black;
-            /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
-            opacity: 0.8;
-            border-radius: 5px;
-        }
-
-        .cineStory {
-            position: relative;
-            background: url(./story.png)no-repeat center bottom/cover;
-            border-radius: 5px;
-        }
-
-        .cineStory::after {
-            content: "";
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            top: 0;
-            left: 0;
-            background: black;
-            /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
-            opacity: 0.8;
-            border-radius: 5px;
-        }
-
-        .cineMovie-movie {
-            background: url(./movie.jpg) no-repeat center center/cover;
-            filter: grayscale(1);
-            transition: 0.3s ease;
-        }
-
-        .cineMovie-movie.selected {
-            filter: grayscale(0);
-            transition: 0.3s ease;
-        }
-
-        .cineMovie-series {
-            background: url(./series.jpg) no-repeat center top/cover;
-            filter: grayscale(1);
-        }
-
-        .cineMovie-series.selected {
-            filter: grayscale(0);
-            transition: 0.3s ease;
-        }
-
-        /* .segment {
-            background: #000;
-            color: wheat;
-            padding: 15px 20px 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .segment.selected {
-            background: linear-gradient(60deg,red,blue);
-        } */
-
-        button,
-        a,
-        p {
-            font-size: 1rem;
-        }
-    </style>
 </head>
 
 <body>
+    <!-- Header Section Start -->
+    <header class="header fixed w-full border-b z-50 py-2">
+        <!-- Header containerNinish -->
+        <div class="containerNinish mx-auto px-2 flex justify-between items-center">
+            <!-- Ham Button -->
+            <div class="hamBtn block md:hidden hide cursor-pointer">
+                <i class="bx bx-menu"></i>
+            </div>
+            <!-- Brand Logo -->
+
+            <div class="logo">
+                <img src="./logo.png" alt="Ninish Logo" />
+            </div>
+
+            <!-- Navigation Links For Desktop -->
+            <nav class="hidden md:block desktopNavLinks">
+                <ul class="flex gap-2">
+                    <li><a href="https://cine.ninish.com">Event Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Navigation Links For Mobile -->
+    <nav class="fixed h-full w-full top-16 bg-white hidden mobileNavLinks z-50 border-t">
+        <ul class="containerNinish mx-auto px-2">
+            <li><a href="https://cine.ninish.com">Event Home</a></li>
+        </ul>
+    </nav>
     <main class="pt-16 px-2">
         <!-- Announcement -->
         <!-- Login Steps -->
@@ -134,9 +53,11 @@
                     <div class="stepsContainer">
                         <!-- Steps Header -->
                         <div class="stepsHeader pb-2 mb-4 border-b sm:flex justify-between gap-4">
-                            <h2 class="text-2xl font-semibold text-center sm:text-start mb-4 sm:mb-0" id="step-header">Choose a segment</h2>
+                            <h2 class="text-2xl font-semibold text-center sm:text-start mb-4 sm:mb-0" id="step-header">
+                                Choose a segment</h2>
                             <!-- Selected Segments -->
-                            <div id="selectedSegments" class="flex flex-wrap gap-2 items-center justify-center sm:justify-end">
+                            <div id="selectedSegments"
+                                class="flex flex-wrap gap-2 items-center justify-center sm:justify-end">
                                 <!-- Dynamically Added -->
                                 <p class="text-red-600">No segment selected</p>
                             </div>
@@ -174,7 +95,7 @@
                                 </div>
                             </div>
                             <!-- Step 2 -->
-                            <div class="step step-2">                           
+                            <div class="step step-2">
                                 <div class="stepsBody grid grid-cols-1 sm:grid-cols-2 gap-2 justify-between">
                                     <!-- cineMovie-movie card -->
                                     <div class="cineMovie-movie movie-card flex gap-4 items-center"
@@ -203,7 +124,7 @@
                             <!-- Step 3 Movies -->
                             <div class="step step-3-movies">
                                 <div class="mb-4 pb-3 border-b" id="movieListDetails">
-                                    
+
                                 </div>
                                 <div class="stepsBody grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                     <!-- Dynamically Rendered -->
@@ -220,7 +141,7 @@
                             <!-- Step 3 Series -->
                             <div class="step step-3-series">
                                 <div class="mb-4 pb-3 border-b" id="seriesListDetails">
-                                    
+
                                 </div>
                                 <div class="stepsBody grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
                                     <!-- Dynamically Rendered -->
@@ -257,7 +178,7 @@
                                     <button type="button" class="btn" id="step-4-prev-btn">
                                         <i class='bx bx-left-arrow-alt'></i> Previous
                                     </button>
-                                    <button type="button" class="btn" id="step-4-next-btn" disabled>
+                                    <button type="submit" class="btn" id="step-4-next-btn" disabled>
                                         Submit <i class='bx bx-block'></i>
                                     </button>
                                 </div>
@@ -269,9 +190,47 @@
 
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="containerNinish mx-auto px-2 text-center">
+        <p class="py-2">Call us:
+            <a href="tel:01644042241" class="contactInfo"> 01644042241</a>,
+            <a href="tel:01722842564" class="contactInfo"> 01722842564</a>,
+            <a href="tel:01952863855" class="contactInfo"> 01952863855</a>
+            <span>(10AM - 8PM)</span>
+        </p>
+        <p class="border-t py-2">
+            &copy; All rights reserved by Ninish
+        </p>
+    </footer>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Application JS -->
+    <script>
+        $(document).ready((e) => {
+            $('.hamBtn').click(() => {
+                // if()
+                if ($('.hamBtn').hasClass('hide')) {
+                    $('.mobileNavLinks').toggle();
+                    $('.hamBtn').removeClass('hide')
+                    $('.hamBtn').addClass('show')
+                    $('.hamBtn').html(` <i class='bx bx-menu-alt-left'></i>`)
+                }
+                else {
+                    $('.mobileNavLinks').toggle();
+                    $('.hamBtn').removeClass('show')
+                    $('.hamBtn').addClass('hide')
+                    $('.hamBtn').html(`<i class='bx bx-menu'></i>`)
+                }
+            })
+        });
+
+        $('.eventNavLinkMobile').click(() => {
+            $('.previousEventsMobile').toggle();
+        })
+    </script>
     <script>
         const movieBundle =
             [
@@ -447,12 +406,12 @@
                 removePrevSelectedMovieType();
                 removePrevSelectedMovieBundle();
                 removePrevSelectedSeriesBundle();
-                if(currentStep === "FINISH" && formData.selectedSegments.length > 0) {}
+                if (currentStep === "FINISH" && formData.selectedSegments.length > 0) { }
                 else if (currentStep != "FINISH" && !formData.selectedSegments.includes(category)) switchToStep1();
                 // else if (currentStep === "FINISH" && formData.selectedSegments.length === 0) switchToStep1();
             }
             else {
-                if(currentStep === "FINISH" && formData.selectedSegments.length === 0) switchToStep1();
+                if (currentStep === "FINISH" && formData.selectedSegments.length === 0) switchToStep1();
             }
             // New Render
             renderSelectedSegments();
@@ -553,7 +512,7 @@
             $("#movieListDetails").html("");
 
             const movie = movieBundle.find(item => item.slug === category);
-            
+
             let content = `
                 <div class="bg-slate-900 text-white p-4 rounded-md">
                     <h3 class="text-xl font-semibold font-mono">${movie.name}</h3>
@@ -572,7 +531,7 @@
             $("#seriesListDetails").html("");
 
             const series = seriesBundle.find(item => item.slug === category);
-            
+
             let content = `
                 <div class="bg-slate-900 text-white p-4 rounded-md">
                     <h3 class="text-xl font-semibold font-mono">${series.name}</h3>
@@ -593,7 +552,7 @@
             $(".bundleCard").each((ind, item) => {
                 item.addEventListener("click", () => {
                     let category = item.getAttribute("data-bundle");
-                    
+
                     if (!formData.selectedSegments.includes(category)) {
                         setupMovieDetailsView(category);
                         removePrevSelectedMovieBundle();
@@ -683,17 +642,15 @@
             $(".step-3-series").removeClass("active");
             $(".step-1-series").removeClass("active");
         }
-        
+
         const submitBtnVisibility = (num) => {
             let rex = /^(01[3-9]\d{8})$/;
-            if(rex.test(num))
-            {
+            if (rex.test(num)) {
                 $("#step-4-next-btn").removeAttr("disabled");
                 $("#step-4-next-btn").html(`Submit <i class='bx bx-check'></i>`);
             }
-            else 
-            {
-                $("#step-4-next-btn").attr("disabled",true);
+            else {
+                $("#step-4-next-btn").attr("disabled", true);
                 $("#step-4-next-btn").html(`Submit <i class='bx bx-block'></i>`);
             }
         };
@@ -750,18 +707,38 @@
 
             // Step 4 Next Button Action
             $("#step-4-prev-btn").click(e => {
-                if(formData.selectedSegments.includes("cineMovie"))
-                {
-                    if(formData.selectedSeriesBundle != "") switchToStep3Series();
+                if (formData.selectedSegments.includes("cineMovie")) {
+                    if (formData.selectedSeriesBundle != "") switchToStep3Series();
                     else switchToStep3Movies();
                 }
                 else switchToStep1();
             });
-        
-            document.querySelector("#phone").addEventListener("input" , e=> {
+
+            document.querySelector("#phone").addEventListener("input", e => {
                 let num = e.target.value;
                 submitBtnVisibility(num);
+                let formData = new FormData();
+                formData.append('key1', 'value1');
+                formData.append('key2', 'value2');
             })
+
+            $("#preferenceForm").submit(e => {
+                e.preventDefault();
+
+                $("#step-4-next-btn").attr("disabled", true);
+                $("#step-4-next-btn").html(`Submitting <i class='bx bx-loader-alt animate-spin'></i>`);
+
+                let newForm = new FormData();
+
+                newForm.set('selection', formData);
+                newForm.set('phone', $("#phone").val());
+
+                for (var key of newForm.entries()) {
+                    console.log(key[0] + ', ' + key[1]);
+                }
+
+            })
+
         })
     </script>
 </body>

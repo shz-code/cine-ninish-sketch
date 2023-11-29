@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .segment{
-    @apply text-white px-8 py-4 rounded-md cursor-pointer  transition-all
+    @apply text-white px-8 py-12 rounded-md cursor-pointer  transition-all
 }
 
 .segment:hover .segmentImgBox{
@@ -23,7 +23,7 @@
 }
 
 .movie-card {
-    @apply bg-black text-white py-20 rounded-md cursor-pointer w-full text-center transition-all
+    @apply bg-black text-white py-24 rounded-md cursor-pointer w-full text-center transition-all
 }
 
 .movie-card .details {

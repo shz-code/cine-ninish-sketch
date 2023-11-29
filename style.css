@@ -1,0 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap");
+
+:root {
+    --primary-color: #6d28d9;
+    --secondary-color: #2e1065;
+    --border-color: #e5e7eb;
+    --bg-color: #F4F7FD;
+}
+
+body {
+    background: var(--bg-color);
+    font-family: "Noto Sans Bengali", sans-serif;
+}
+
+.containerNinish {
+    max-width: 1200px;
+    width: 100%;
+}
+
+.logo {
+    width: 6rem;
+}
+
+.logo img {
+    width: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.hamBtn {
+    font-size: 2rem;
+}
+
+.circ {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+header {
+    background: white;
+}
+
+nav i {
+    font-size: 1.5rem;
+}
+
+nav img {
+    width: 2rem;
+}
+
+nav a,
+nav .eventNavLinkMobile {
+    color: black;
+}
+
+nav a:hover,
+nav .eventNavLinkMobile:hover {
+    color: var(--primary-color);
+}
+
+.desktopNavLinks a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    transition: 0.1s ease;
+}
+
+.desktopNavLinks .eventNavLinkDesktop {
+    position: relative;
+}
+
+.desktopNavLinks .eventNavLinkDesktop .previousEventsDesktop {
+    display: none;
+    padding: 0.4rem;
+}
+
+.desktopNavLinks .eventNavLinkDesktop .previousEventsDesktop .nestedNavLink a {
+    gap: 0.5rem;
+}
+
+.desktopNavLinks .eventNavLinkDesktop .previousEventsDesktop .nestedNavLink a:hover {
+    background: rgba(0, 0, 0, 0.055);
+}
+
+.desktopNavLinks .eventNavLinkDesktop:hover .previousEventsDesktop {
+    display: block;
+    position: absolute;
+    width: 18rem;
+    background: white;
+    transform: translateX(-20%);
+}
+
+.mobileNavLinks ul {
+    width: 100%;
+}
+
+.mobileNavLinks ul .nestedNavLink a {
+    display: flex !important;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+}
+
+.mobileNavLinks ul .nestedNavLink a:hover {
+    background: rgba(0, 0, 0, 0.055);
+}
+
+.mobileNavLinks ul .nestedNavLink:last-child a {
+    margin-bottom: -9px;
+}
+
+.mobileNavLinks ul li a,
+.mobileNavLinks ul li.eventNavLinkMobile {
+    border-bottom: 1px solid var(--border-color);
+    display: block;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.mobileNavLinks ul .previousEventsMobile a {
+    border-top: 1px solid var(--border-color);
+    border-bottom: none;
+    padding-left: 2rem;
+}
+
+img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.cineMovie {
+    position: relative;
+    background: url(./movie\ bg.png)no-repeat center center/cover;
+    border-radius: 5px;
+}
+
+.cineMovie::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+.cineStory {
+    position: relative;
+    background: url(./story.png)no-repeat center bottom/cover;
+    border-radius: 5px;
+}
+
+.cineStory::after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: black;
+    /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
+    opacity: 0.8;
+    border-radius: 5px;
+}
+
+.cineMovie-movie {
+    background: url(./movie.jpg) no-repeat center center/cover;
+    filter: grayscale(1);
+    transition: 0.3s ease;
+}
+
+.cineMovie-movie.selected {
+    filter: grayscale(0);
+    transition: 0.3s ease;
+}
+
+.cineMovie-series {
+    background: url(./series.jpg) no-repeat center top/cover;
+    filter: grayscale(1);
+}
+
+.cineMovie-series.selected {
+    filter: grayscale(0);
+    transition: 0.3s ease;
+}
+
+/* .segment {
+    background: #000;
+    color: wheat;
+    padding: 15px 20px 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.segment.selected {
+    background: linear-gradient(60deg,red,blue);
+} */
+
+button,
+a,
+p {
+    font-size: 1rem;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
