@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/output.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <header class="header fixed w-full border-b z-50 py-2">
+        <!-- Header containerNinish -->
+        <div class="containerNinish mx-auto px-2 flex justify-between items-center">
+            <!-- Ham Button -->
+            <div class="hamBtn block md:hidden hide cursor-pointer">
+                <i class="bx bx-menu"></i>
+            </div>
+            <!-- Brand Logo -->
+
+            <a href="/" class="logo">
+                <img src="./img/logo.png" alt="Ninish Logo" />
+            </a>
+
+            <!-- Navigation Links For Desktop -->
+            <nav class="hidden md:block desktopNavLinks">
+                <ul class="flex gap-2">
+                    <li>
+                        <a href="./vReg.html">Verify Registration</a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="./admdashboard.html">Admin Dashboard</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Navigation Links For Mobile -->
+    <nav class="fixed h-full w-full top-16 bg-white hidden mobileNavLinks z-50 border-t">
+        <ul class="containerNinish mx-auto px-2">
+            <li><a href="https://ninish.com">হোম</a></li>
+            <li>
+                <a href="https://ninish.com/mujibOlympiad23.php">মুজিব অলিম্পিয়াড ২০২৩</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="pt-16 px-2">
+        <!-- Announcement -->
+        <!-- Verify -->
+        <!-- Login/Signup -->
+        <section class="containerTaanRaat mx-auto px-2 pt-20">
+            <div class="flex flex-col-reverse md:flex-row items-center gap-4">
+                <div class="w-full text-gray-900 text-center md:text-start mt-8 md:mt-0">
+                    <!-- Back Button -->
+                    <div class="mb-2">
+                        <a href="./index.html" class="text-amber-500 cursor-pointer font-semibold">
+                            <span><i class='bx bx-arrow-back'></i></span>
+                            Edit Number
+                        </a>
+                    </div>
+                    <form method="post">
+                        <!-- {% csrf_token %}  -->
+                        <!-- Label -->
+                        <label for="otp" class="cursor-pointer text-xl font-semibold">Verify Number</label>
+                        <!-- {% if error %}
+                        <p style="color: red;">Wrong OTP. Try Again</p>
+                        {% endif %} -->
+                        <!-- Info -->
+                        <p class="text-slate-600 mt-2">
+                            OTP is sent to <span class="text-amber-500 font-semibold">+880{{phone}}</span>
+                        </p>
+                        <!-- Input -->
+                        <div class="flex justify-center md:justify-start mt-2">
+                            <!-- Input Container -->
+                            <div class="w-full">
+                                <input type="number" id="otp" name="otp" placeholder="XXXX"
+                                    class="py-1 otp-input rounded-md bg-gray-50 border border-gray-300 px-2 text-lg w-full text-center"
+                                    max=9999 required>
+                            </div>
+                        </div>
+                        <!-- Button -->
+                        <div class="mt-4">
+                            <button type="submit" class="btn" id="otp-submit" disabled>
+                                Submit <i class='bx bx-block'></i>
+                            </button>
+                        </div>
+                    </form>
+                    <button class="text-slate-700 font-bold underline mt-4" disabled id="otpSender">
+                        Resend OTP (After 2 minutes)
+                    </button>
+                </div>
+                <div>
+                    <img src="./img/reg-banner.png" alt="Registration Banner">
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="containerNinish mx-auto px-2 text-center">
+        <p class="py-2">Call us:
+            <a href="tel:01644042241" class="contactInfo"> 01644042241</a>,
+            <a href="tel:01722842564" class="contactInfo"> 01722842564</a>,
+            <a href="tel:01952863855" class="contactInfo"> 01952863855</a>
+            <span>(10AM - 8PM)</span>
+        </p>
+        <p class="border-t py-2">
+            &copy; All rights reserved by Ninish
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        document.querySelector("#otp").addEventListener("input", (e) => {
+            if (e.target.value.length === 4) {
+                $("#otp-submit").removeAttr("disabled");
+                $("#otp-submit").html(`Submit <i class='bx bx-check'></i>`);
+            }
+            else {
+                $("#otp-submit").attr("disabled", true);
+                $("#otp-submit").html(`Submit <i class='bx bx-block'></i>`);
+            }
+        })
+
+
+        $("#otpSender").click(() => {
+            window.location.href = `/verify/{{id}}`
+        })
+
+        const timerCallback = () => {
+            $("#otpSender").removeClass("text-slate-700");
+            $("#otpSender").addClass("text-black");
+            $("#otpSender").removeAttr("disabled");
+            $("#otpSender").html("Resend");
+        }
+
+        // Set the timer for 2 minutes (2 * 60 seconds)
+        setTimeout(timerCallback, 2 * 60 * 1000);
+        // setTimeout(timerCallback, 5000); 
+
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap");
 
 :root {
-    --primary-color: #6d28d9;
+    --primary-color: #B86F08;
     --secondary-color: #2e1065;
     --border-color: #e5e7eb;
     --bg-color: #F4F7FD;
@@ -18,7 +18,7 @@ body {
 }
 
 .logo {
-    width: 6rem;
+    width: 5rem;
 }
 
 .logo img {
@@ -142,7 +142,7 @@ img {
 
 .cineMovie {
     position: relative;
-    background: url(./movie\ bg.png)no-repeat center center/cover;
+    background: url(../img/movie-bg.png)no-repeat center center/cover;
     border-radius: 5px;
 }
 
@@ -161,7 +161,7 @@ img {
 
 .cineStory {
     position: relative;
-    background: url(./story.png)no-repeat center bottom/cover;
+    background: url(../img/story.png)no-repeat center bottom/cover;
     border-radius: 5px;
 }
 
@@ -179,7 +179,7 @@ img {
 }
 
 .cineMovie-movie {
-    background: url(./movie.jpg) no-repeat center center/cover;
+    background: url(../img/movie.jpg) no-repeat center center/cover;
     filter: grayscale(1);
     transition: 0.3s ease;
 }
@@ -190,7 +190,7 @@ img {
 }
 
 .cineMovie-series {
-    background: url(./series.jpg) no-repeat center top/cover;
+    background: url(../img/series.jpg) no-repeat center top/cover;
     filter: grayscale(1);
 }
 
@@ -217,7 +217,7 @@ p {
     font-size: 1rem;
 }
 
-a:hover {
+a {
     color: var(--primary-color);
 }
 

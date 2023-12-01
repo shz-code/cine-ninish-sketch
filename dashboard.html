@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/output.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <header class="header fixed w-full border-b z-50 py-2">
+        <!-- Header containerNinish -->
+        <div class="containerNinish mx-auto px-2 flex justify-between items-center">
+            <!-- Ham Button -->
+            <div class="hamBtn block md:hidden hide cursor-pointer">
+                <i class="bx bx-menu"></i>
+            </div>
+            <!-- Brand Logo -->
+
+            <a href="/" class="logo">
+                <img src="./img/logo.png" alt="Ninish Logo" />
+            </a>
+
+            <!-- Navigation Links For Desktop -->
+            <nav class="hidden md:block desktopNavLinks">
+                <ul class="flex gap-2">
+                    <li>
+                        <a href="./vReg.html">Verify Registration</a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="./admdashboard.html">Admin Dashboard</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Navigation Links For Mobile -->
+    <nav class="fixed h-full w-full top-16 bg-white hidden mobileNavLinks z-50 border-t">
+        <ul class="containerNinish mx-auto px-2">
+            <li><a href="https://ninish.com">হোম</a></li>
+            <li>
+                <a href="https://ninish.com/mujibOlympiad23.php">মুজিব অলিম্পিয়াড ২০২৩</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="pt-16 px-2">
+        <!-- Announcement -->
+        <!-- Logos -->
+        <div class="pt-16">
+            <div class="flex justify-center items-center gap-10">
+                <img class="w-40" src="./img/logo.png" alt="Ninish Logo">
+            </div>
+        </div>
+
+        <!-- {% if profileCompleted %} -->
+        <!-- Account Overview -->
+        <section class="py-16 px-2">
+            <div class="containerNinish mx-auto shadow-md px-2 sm:px-10 py-10 bg-white rounded-md">
+                <div>
+                    <div class="mb-4 pb-4">
+                        <a href="/logout" class="btn w-fit">
+                            Logout <i class='bx bx-log-out-circle'></i>
+                        </a>
+                    </div>
+                    <div>
+                        <h3 class="text-3xl font-semibold">CineQuiz Showdown registration status:</h3>
+                        <div>
+                            <!-- {% if paymentCompleted %} -->
+                            <!-- Successful -->
+                            <div class="flex text-xl py-4 items-center gap-6">
+                                <span class="text-4xl text-green-500"><i class='bx bxs-check-circle'></i></span>
+                                <p>
+                                    Your registration is successful.
+                                </p>
+                            </div>
+                            <!-- {% else %} -->
+                            <!-- Pending -->
+                            <div class="text-lg grid gap-2 mt-2">
+                                <div class="flex text-xl py-4 items-center gap-6">
+                                    <span class="text-4xl text-yellow-500"><i class='bx bx-error'></i></span>
+                                    <p>
+                                        <!-- {% if paymentRequest %} -->
+                                        Your payment request is under review. <br>
+                                        <!-- {% else %} -->
+                                        Your payment is due. Without completing payment you can not participate in the
+                                        CineQuiz.
+                                        <!-- {% endif %} -->
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <!-- {% if paymentRequest == False %}                              -->
+                                    <h4 class="text-2xl font-semibold">Instructions for registration fee payment:</h4>
+                                    <p class="py-2">Send <span class="font-bold">250 Taka</span> to any of the following
+                                        numbers below:</p>
+                                    <div class="grid gap-2 text-xl py-4 bg-slate-900 text-white px-4 rounded-md">
+                                        <p class="py-2 flex gap-6"><span class="font-bold">01793000873</span> bKash
+                                            personal</p>
+                                        <p class="py-2 flex gap-6"><span class="font-bold">01303351341</span> bKash
+                                            personal</p>
+                                        <p class="py-2 flex gap-6"><span class="font-bold">01793000873</span> Nagad
+                                            personal</p>
+                                        <p class="py-2 flex gap-6"><span class="font-bold">01303351341</span> Nagad
+                                            personal</p>
+                                        <p class="py-2 flex gap-6"><span class="font-bold">01303351341</span> Rocket
+                                            personal</p>
+                                    </div>
+                                    <div class="py-2">
+                                        <p>After sending registration fee please fill up the below form with appropriate
+                                            Transaction id (Trx) and sender mobile number.
+                                        </p>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-2xl font-semibold">Registration fee request form:</h4>
+                                        <form class="mt-4" method="post" action="/paymentRequest">
+                                            <!-- {% csrf_token %} -->
+                                            <!-- Trx -->
+                                            <div class="pb-4">
+                                                <label for="trx">Transaction id(Trx):</label>
+                                                <input id="trx" name="trx" required placeholder="Ex: AKMXXXX50F"
+                                                    type="text"
+                                                    class="dashboard-input" />
+                                            </div>
+                                            <!-- Number -->
+                                            <div class="pb-4">
+                                                <label for="senderNumber">Sender Number (From which number registration fee was sent):</label>
+                                                <input id="senderNumber" name="senderNumber" required
+                                                    placeholder="Ex: 017664XXXX3"
+                                                    type="number"
+                                                    class="dashboard-input" />
+                                            </div>
+                                            <!-- Number -->
+                                            <div class="pb-4">
+                                                <label for="receiverNumber">Receiver Number:</label>
+                                                <select id="receiverNumber" name="receiverNumber"
+                                                    class="dashboard-input" required>
+                                                    <option value="" hidden>Select Appropriate Number</option>
+                                                    <option value="01793000873(Bkash)">01793000873(Bkash)</option>
+                                                    <option value="01303351341(Bkash)">01303351341(Bkash)</option>
+                                                    <option value="01793000873(Nagad)">01793000873(Nagad)</option>
+                                                    <option value="01303351341(Nagad)">01303351341(Nagad)</option>
+                                                    <option value="01303351341(Rocket)">01303351341(Rocket)</option>
+                                                </select>
+                                                <p class="mt-2 font-semibold text-red-600">Select the number to which the registration fee has been sent</p>
+                                            </div>
+                                            <div class="pb-4">
+                                                <button type="submit"
+                                                    class="btn">
+                                                    Submit <i class='bx bx-check'></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <!-- {% endif %} -->
+                                    <div class="mt-4 grid gap-2 bg-rose-200 p-4 rounded-md">
+                                        <h4 class="text-2xl font-semibold">Special Note:</h4>
+                                        <p>1) It may take up to 24 hours for your registration fee record to be updated.
+                                        </p>
+                                        <p>2) Please wait if registration fee is paid</p>
+                                        <p>3) You will be contacted in case of any discrepancy</p>
+                                        <p>4) Contact us after 24 hours and no registration fee verification
+                                            <a href="tel:01793000873" class="underline"> 01793000873</a>
+                                            <span>(10AM - 8PM)</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- {% endif %} -->
+                        </div>
+                    </div>
+                    <h3 class="text-3xl font-semibold mt-8">Account Information</h3>
+                    <div class="text-lg grid gap-2 mt-2">
+                        <p>Name: <span class="text-slate-700 font-semibold">{{name}}</span></p>
+                        <p>Registration Id: <span class="text-slate-700 font-semibold">{{regId}}</span></p>
+                        <p>Selected Quiz Category: <span class="text-slate-700 font-semibold">{{category}}</span></p>
+                        <p>Selected Bundle: </p>
+                        <p>Phone Number: <span class="text-slate-700 font-semibold">+88 {{phone}}</span></p>
+                        <p>Email Address: <span class="text-slate-700 font-semibold">{{email}}</span></p>
+                    </div>
+                </div>
+                <div class="py-8">
+                    <h3 class="text-3xl font-semibold">Information About CineQuiz Showdown:</h3>
+                    <div class="text-lg grid gap-2 mt-2">
+                        <p>To know more: <a href="https://ninish.com/mujibOlympiad23.php" class="underline"> Click here </a></p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- {% else %} -->
+        <!-- Account Information Fill up -->
+        <section class="pt-16 px-2">
+            <div class="form flex justify-center">
+                <form class="max-w-4xl w-full bg-white px-4 py-8 mb-8 rounded-lg shadow-md" method="post">
+                    <!-- {% csrf_token %} -->
+                    <div>
+                        <h3 class="text-3xl pb-3 my-8 text-center font-semibold">
+                            Fill up the form with proper information
+                        </h3>
+                    </div>
+                    <!-- Name -->
+                    <div class="pb-10">
+                        <label for="name">Name</label>
+                        <input id="name" name="name" required placeholder="Ex: John Doe" type="text"
+                            class="dashboard-input" />
+                        <p class="mt-2 font-semibold text-red-600">The name provided here will be used for certification. Name once entered can not be changed.</p>
+                    </div>
+                    <!-- Email -->
+                    <div class="pb-10">
+                        <label for="cls">Email:</label>
+                        <input id="cls" name="cls" required placeholder="Ex: johndoe@ninish.com" type="email"
+                            class="dashboard-input" />
+                    </div>               
+                    <!-- Class -->
+                    <div class="pb-10">
+                        <label for="cls">Class:</label>
+                        <input id="cls" name="cls" required placeholder="Ex: 10" type="text"
+                            class="dashboard-input" />
+                    </div>               
+                    <!-- Institute -->
+                    <div class="pb-8">
+                        <label for="institute">Education Institute:</label>
+                        <input id="institute" name="institute" required placeholder="Ex: Notre Dame College, Dhaka "
+                            type="text" class="dashboard-input" />
+                    </div>                  
+                    <div>
+                        <button type="submit"
+                            class="btn">
+                            Submit <i class='bx bx-check'></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <!-- {% endif %} -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="containerNinish mx-auto px-2 text-center">
+        <p class="py-2">Call us:
+            <a href="tel:01644042241" class="contactInfo"> 01644042241</a>,
+            <a href="tel:01722842564" class="contactInfo"> 01722842564</a>,
+            <a href="tel:01952863855" class="contactInfo"> 01952863855</a>
+            <span>(10AM - 8PM)</span>
+        </p>
+        <p class="border-t py-2">
+            &copy; All rights reserved by Ninish
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+
+</html>

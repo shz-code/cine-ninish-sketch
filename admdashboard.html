@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/output.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+
+<body>
+    <header class="header fixed w-full border-b z-50 py-2">
+        <!-- Header containerNinish -->
+        <div class="containerNinish mx-auto px-2 flex justify-between items-center">
+            <!-- Ham Button -->
+            <div class="hamBtn block md:hidden hide cursor-pointer">
+                <i class="bx bx-menu"></i>
+            </div>
+            <!-- Brand Logo -->
+
+            <a href="/" class="logo">
+                <img src="./img/logo.png" alt="Ninish Logo" />
+            </a>
+
+            <!-- Navigation Links For Desktop -->
+            <nav class="hidden md:block desktopNavLinks">
+                <ul class="flex gap-2">
+                    <li>
+                        <a href="./vReg.html">Verify Registration</a>
+                    </li>
+                    <li>
+                        <a href="./dashboard.html">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="./admdashboard.html">Admin Dashboard</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Navigation Links For Mobile -->
+    <nav class="fixed h-full w-full top-16 bg-white hidden mobileNavLinks z-50 border-t">
+        <ul class="containerNinish mx-auto px-2">
+            <li><a href="https://ninish.com">হোম</a></li>
+            <li>
+                <a href="https://ninish.com/mujibOlympiad23.php">মুজিব অলিম্পিয়াড ২০২৩</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="pt-16 px-2">
+        <!-- Announcement -->
+        <!-- Registration overview -->
+        <section class="containerNinish mx-auto px-2 pt-8">
+            <div class=" text-black grid grid-cols-2 md:grid-cols-4 gap-4 py-4 text-center">
+                <div class="statCard rounded-md bg-slate-400 flex flex-col items-center px-4 py-8">
+                    <!-- <p class="text-4xl text-center font-semibold">{{studentsCount}}</p> -->
+                    <p class="text-4xl text-center font-semibold">0</p>
+                    <span class="text-xl text-slate-700 mt-3">Total Registration</span>
+                </div>
+                <div class="statCard rounded-md bg-slate-400 flex flex-col items-center px-4 py-8">
+                    <p class="text-4xl text-center font-semibold">0</p>
+                    <!-- <p class="text-4xl text-center font-semibold">{{studentsPayed}}</p> -->
+                    <span class="text-xl text-slate-700 mt-3">Registration Fee Collected</span>
+                </div>
+                <div class="statCard rounded-md bg-slate-400 flex flex-col items-center px-4 py-8">
+                    <p class="text-4xl text-center font-semibold">0</p>
+                    <!-- <p class="text-4xl text-center font-semibold">{{studentsLeft}}</p> -->
+                    <span class="text-xl text-slate-700 mt-3">Registration Fee Left</span>
+                </div>
+                <div class="statCard rounded-md bg-slate-400 flex flex-col items-center px-4 py-8">
+                    <p class="text-4xl  text-center font-semibold">0/=</p>
+                    <!-- <p class="text-4xl  text-center font-semibold">{{collection}}/=</p> -->
+                    <span class="text-xl text-slate-700 mt-3">Total Collection</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Admin Action -->
+        <section class="py-16 containerNinish mx-auto px-2">
+            <h3 class="text-3xl font-semibold">Result Download:</h3>
+            <div class=" text-black grid grid-cols-2 md:grid-cols-3 gap-4 py-4 text-center">
+                <a href="#" class="statCard rounded-md bg-slate-300 flex flex-col items-center px-4 py-8">
+                    <p>CineQuiz-Movie</p>
+                </a>
+                <a href="#" class="statCard rounded-md bg-slate-300 flex flex-col items-center px-4 py-8">
+                    <p>CineQuiz-Series</p>
+                </a>
+                <a href="#" class="statCard rounded-md bg-slate-300 flex flex-col items-center px-4 py-8">
+                    <p>CineQuiz-Story Writing</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white mb-8">
+            <div class="containerNinish mx-auto px-2">
+                <a href="#" class="statCard block rounded-md bg-slate-600 px-4 py-8 mb-8 font-semibold">
+                    Approved user list download
+                </a>
+                <h3 class="text-3xl font-semibold">Registration fee validation:</h3>
+                <div class="fee-action flex gap-4">
+                    <select id="admin-action" name="admin-action" class="dashboard-input" required>
+                        <option value="" hidden>Select Appropriate Action</option>
+                        <option value="approve">Approve</option>
+                        <option value="disapprove">Disapprove</option>
+                    </select>
+                    <button class="btn w-full flex justify-center" id="action-btn" type="button">Go</button>
+                </div>
+                <div class="relative overflow-x-auto mt-4">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                        <thead class="text-gray-700 uppercase bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    Select
+                                </th>
+                                <!-- <th scope="col" class="px-6 py-3">
+                                    Approve
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Disapprove
+                                </th> -->
+                                <th scope="col" class="px-6 py-3">
+                                    N. Number
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Sender Number
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Trx Id
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Reg Id
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Category
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- {% for student in students %}
+                       <tr class="border-b">
+                        <td class="px-6 py-4">
+                            {{student.registrationId}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.name}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.phone}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.stu_class}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.quizCategory}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.receiverPhone}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.senderPhone}}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{student.trxId}}
+                        </td>
+                        <td class="px-6 py-4">
+                            <form method="post">
+                                {% csrf_token %}
+                                <input type="text" name="student_id" hidden value="{{student.id}}">
+                                <button type="submit" class="flex items-center gap-2 cursor-pointer">
+                                    <span class="text-yellow-500 text-lg mt-1">
+                                        <i class='bx bxs-check-shield' ></i>
+                                    </span>
+                                    Approve
+                                </button>
+                            </form>
+                        </td>
+                        <td class="px-4">
+                            <form method="post" action="/disapprove">
+                                {% csrf_token %}
+                                <input type="text" name="student_id" hidden value="{{student.id}}">
+                                <button type="submit" class="flex items-center gap-2 cursor-pointer">
+                                    <span class=" text-lg mt-1" style="color: red;">
+                                        <i class='bx bx-x'></i>
+                                    </span>
+                                    Disapprove
+                                </button>
+                            </form>
+                        </td>
+                        </tr>
+                        {% endfor %} -->
+                            <tr class="border-b">
+                                <td class="px-6 py-4">
+                                    <input type="checkbox" class="accent-amber-500 ckBox" data-target="2">
+                                </td>
+                                <td class="px-6 py-4">
+                                    01534524551(bKash)
+                                </td>
+                                <td class="px-6 py-4">
+                                    01766409973
+                                </td>
+                                <td class="px-6 py-4">
+                                    ASDCXAWEQWES
+                                </td>
+                                <td class="px-6 py-4">
+                                    123
+                                </td>
+                                <td class="px-6 py-4">
+                                    <span class="bg-black px-4 text-white">CineQuiz-Movie</span>,
+                                    <span class="bg-black px-4 text-white">CineQuiz-Series</span>
+                                    <span class="bg-black px-4 text-white">CineQuiz-Story Writing</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="containerNinish mx-auto px-2 text-center">
+        <p class="py-2">Call us:
+            <a href="tel:01644042241" class="contactInfo"> 01644042241</a>,
+            <a href="tel:01722842564" class="contactInfo"> 01722842564</a>,
+            <a href="tel:01952863855" class="contactInfo"> 01952863855</a>
+            <span>(10AM - 8PM)</span>
+        </p>
+        <p class="border-t py-2">
+            &copy; All rights reserved by Ninish
+        </p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        let state = [];
+        $(".ckBox").each((ind, item) => {
+            item.addEventListener("click", e => {
+                let id = e.target.getAttribute("data-target");
+                if (e.target.checked) {
+                    state.push(id);
+                }
+                else {
+                    let newState = state.filter(item => item !== id);
+                    state = newState;
+                }
+                console.log(state);
+            })
+        });
+        $("#action-btn").click(async (e) => {
+
+            url = ""
+
+            const flag = confirm("Are you sure?")
+
+            if(flag)
+            {
+                if ($("#admin-action").val() === "approve") {
+                    try {
+                        const res = await fetch(`${url}/approve`, {
+                            method: "post",
+                            body: JSON.stringify(state),
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        });
+                        
+                        const data = await res.json();
+                        
+                        if(data === 200)
+                        {
+                            window.location.reload();
+                        }
+                    }
+                    catch (err) {
+                            
+                    }
+                }
+                else {
+                    try {
+                        const res = await fetch(`${url}/disapprove`, {
+                            method: "post",
+                            body: JSON.stringify(state),
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                        });
+                        
+                        const data = await res.json();
+                        
+                        if(data === 200)
+                        {
+                            window.location.reload();
+                        }
+                    }
+                    catch (err) {
+                            
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
+
+
+<!-- <td class="px-6 py-4">
+    <form method="post">
+         {% csrf_token %}
+        <input type="text" name="student_id" hidden value="{{student.id}}">
+        <button type="submit" class="flex items-center gap-2 cursor-pointer">
+            <span class="text-yellow-500 text-lg mt-1">
+                <i class='bx bxs-check-shield'></i>
+            </span>
+            Approve
+        </button>
+    </form>
+</td>
+<td class="px-4">
+    <form method="post" action="/disapprove">
+         {% csrf_token %} 
+        <input type="text" name="student_id" hidden value="{{student.id}}">
+        <button type="submit" class="flex items-center gap-2 cursor-pointer">
+            <span class=" text-lg mt-1" style="color: red;">
+                <i class='bx bx-x'></i>
+            </span>
+            Disapprove
+        </button>
+    </form>
+</td> -->
