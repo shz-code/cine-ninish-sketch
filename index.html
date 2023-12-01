@@ -13,35 +13,6 @@
 </head>
 
 <body>
-    <!-- Header Section Start -->
-    <header class="header fixed w-full border-b z-50 py-2">
-        <!-- Header containerNinish -->
-        <div class="containerNinish mx-auto px-2 flex justify-between items-center">
-            <!-- Ham Button -->
-            <div class="hamBtn block md:hidden hide cursor-pointer">
-                <i class="bx bx-menu"></i>
-            </div>
-            <!-- Brand Logo -->
-
-            <div class="logo">
-                <img src="./logo.png" alt="Ninish Logo" />
-            </div>
-
-            <!-- Navigation Links For Desktop -->
-            <nav class="hidden md:block desktopNavLinks">
-                <ul class="flex gap-2">
-                    <li><a href="https://cine.ninish.com">Event Home</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    <!-- Header Section End -->
-    <!-- Navigation Links For Mobile -->
-    <nav class="fixed h-full w-full top-16 bg-white hidden mobileNavLinks z-50 border-t">
-        <ul class="containerNinish mx-auto px-2">
-            <li><a href="https://cine.ninish.com">Event Home</a></li>
-        </ul>
-    </nav>
     <main class="pt-16 px-2">
         <!-- Announcement -->
         <!-- Login Steps -->
@@ -398,6 +369,7 @@
         const removeSegment = (category) => {
             const newForm = formData.selectedSegments.filter(item => item != category);
             formData.selectedSegments = newForm;
+            console.log(formData);
             $(`.${category}`).removeClass("selected");
             if (category === "cineMovie") {
                 formData.selectedMovieType = "";
@@ -406,7 +378,9 @@
                 removePrevSelectedMovieType();
                 removePrevSelectedMovieBundle();
                 removePrevSelectedSeriesBundle();
-                if (currentStep === "FINISH" && formData.selectedSegments.length > 0) { }
+                if (currentStep === "FINISH" && formData.selectedSegments.length === 0) { 
+                    switchToStep1();    
+                }
                 else if (currentStep != "FINISH" && !formData.selectedSegments.includes(category)) switchToStep1();
                 // else if (currentStep === "FINISH" && formData.selectedSegments.length === 0) switchToStep1();
             }
@@ -492,6 +466,7 @@
         }
 
         const switchToStep1 = () => {
+            currentStep = "1nd"
             $("#step-header").html("Choose a segment");
             $(".step-1").addClass("active");
             $(".step-2").removeClass("active");
@@ -501,6 +476,7 @@
         }
 
         const switchToStep2 = () => {
+            currentStep = "2nd"
             $("#step-header").html("Choose a movie type");
             $(".step-2").addClass("active");
             $(".step-1").removeClass("active");
@@ -618,6 +594,7 @@
         };
 
         const switchToStep3Movies = () => {
+            currentStep = "3rd"
             $("#step-header").html("Choose a movie bundle");
             $(".step-3-movies").addClass("active");
             $(".step-2").removeClass("active");
@@ -626,6 +603,7 @@
         }
 
         const switchToStep3Series = () => {
+            currentStep = "3rd"
             $("#step-header").html("Choose a series bundle");
             $(".step-3-series").addClass("active");
             $(".step-2").removeClass("active");
