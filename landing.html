@@ -835,9 +835,10 @@
                 let scrollElementPrimary = item.querySelector(".scroll-element.primary");
                 let scrollElementSecondary = item.querySelector(".scroll-element.secondary");
                 let height = img.height;
-
+                
                 let duration = item.getAttribute("data-duration");
                 imgInitialHeight = height;
+                console.log(height);
 
                 scrollElementPrimary.animate(
                     [
@@ -862,10 +863,13 @@
 
         infiniteScroll();
 
+        let initialWidth = document.querySelector("main").clientWidth;
+
         window.onresize = () => {
+            // console.log(document.querySelector("main").clientWidth);
             let img = document.querySelector(".scroll-element").querySelector("img");
             let height = img.height;
-            if (imgInitialHeight !== height) infiniteScroll();
+            if (initialWidth !== document.querySelector("main").clientWidth) infiniteScroll();
         }
     </script>
 </body>
