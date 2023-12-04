@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/input.css">
+    <link rel="stylesheet" href="./css/output.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+
+        .galada {
+            font-family: 'Galada', cursive;
+        }
+
+        .infinite-scroll {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            height: 100vh;
+        }
+
+        .scroll-parent {
+            position: relative;
+            width: 180px;
+            overflow-y: hidden;
+        }
+
+        .scroll-element {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .infinite-scroll {
+                max-width: 1000px;
+                width: 100%;
+                margin: 30px auto 0;
+                padding: 0 5px 0 5px;
+            }
+
+            .scroll-parent {
+                max-width: 300px;
+                width: 100%;
+            }
+        }
+        @media screen and (max-width: 400px) {
+            .infinite-scroll {
+                height: 400px;
+            }
+        }
+
+        .cta-card {
+            position: relative;
+            background: black;
+            overflow: hidden;
+        }
+
+        .cta-card .imgBox img {
+            transition: 0.3s ease;
+        }
+
+        .cta-card:hover .imgBox img {
+            scale: 1.1;
+        }
+
+        .cta-card .imgBox {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+
+        .cta-card .imgBox::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background: black;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header fixed backdrop-blur-lg bg-white/30 w-full z-50 py-1">
+        <!-- Header containerNinish -->
+        <div class="containerNinish mx-auto px-2 flex justify-between items-center">
+            <!-- Ham Button -->
+            <div class="hamBtn block md:hidden hide cursor-pointer">
+                <i class="bx bx-menu"></i>
+            </div>
+            <!-- Brand Logo -->
+            <a href="#home" class="logo">
+                <img src="./img/logo.png" alt="CineQuiz Logo" />
+            </a>
+
+            <!-- Navigation Links For Desktop -->
+            <nav class="hidden md:block desktopNavLinks">
+                <ul class="flex gap-2">
+                    <li>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white"  href="#prizes">Prizes</a>
+                    </li>
+                    <li>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white" href="#highlights">Highlights</a>
+                    </li>
+                    <li>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white" href="#bundles">Bundles</a>
+                    </li>
+                    <li>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white" href="#faqs">FAQs</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- CTA Button -->
+            <div class="regBtn">
+                <a href="https://cinequiz.ninish.com"
+                    class="btnPrimary block cursor-pointer rounded-md bg-gradient-to-tr  from-slate-800 to-black px-4 py-2 text-white">Account</a>
+            </div>
+
+        </div>
+    </header>
+    <!-- Header Section End -->
+    <!-- Navigation Links For Mobile -->
+    <nav class="fixed h-full w-full bg-white hidden mobileNavLinks z-50">
+        <ul class="containerNinish mx-auto px-2">
+            <li>
+                <a href="#prizes" onclick="closeNav()">Prizes</a>
+            </li>
+            <li>
+                <a href="#highlights" onclick="closeNav()">Highlights</a>
+            </li>
+            <li>
+                <a href="#bundles" onclick="closeNav()">Bundles</a>
+            </li>
+            <li>
+                <a href="#faqs" onclick="closeNav()">FAQs</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Banner -->
+        <section id="home" class="bg-gradient-to-tr from-black to-slate-950 text-white">
+            <div class="containerNinish px-2 mx-auto lg:flex justify-between items-center gap-10 pt-40 lg:pt-0">
+                <div class="details w-full pb-8 lg:py-0">
+                    <div class="img-box max-w-[250px] w-full mx-auto">
+                        <img src="./img/logo.png" alt="Cine Quiz Logo">
+                    </div>
+                    <div class="info w-full mt-4 text-center">
+                        <h1 class="text-2xl md:text-3xl xl:text-5xl font-semibold my-4">CineQuiz Showdown</h1>
+                        <p class="text-slate-400">Where Movie Magic Meets Creative Brilliance!</p>
+                    </div>
+                    <div class="banner-btns flex gap-4 justify-center mt-4">
+                        <a
+                        href="#sturucture"
+                            class="px-4 py-2 text-white hover:text-white sm:px-6 sm:py-3 rounded-md bg-white/30 backdrop-blur-sm text-lg sm:text-2xl hover:bg-amber-700/30 transition-all border-x-4 border-y-4 border-transparent">Know
+                            More</a>
+                        <button
+                            class="px-4 py-2 sm:px-6 sm:py-3 rounded-md border-y-4 border-x-4 text-lg sm:text-2xl transition-all hover:bg-white hover:text-black">Register
+                            Now</button>
+                    </div>
+                </div>
+                <div class="infinite-scroll border-t-4 border-slate-800">
+                    <div class="scroll-parent" data-duration="15">
+                        <div class="scroll-element primary">
+                            <img src="./img/web-banner-1.png" alt="">
+                        </div>
+                        <div class="scroll-element secondary">
+                            <img src="./img/web-banner-1.png" alt="">
+                        </div>
+                    </div>
+                    <div class="scroll-parent" data-duration="20">
+                        <div class="scroll-element primary">
+                            <img src="./img/web-banner-2.png" alt="">
+                        </div>
+                        <div class="scroll-element secondary">
+                            <img src="./img/web-banner-2.png" alt="">
+                        </div>
+                    </div>
+                    <div class="scroll-parent" data-duration="12">
+                        <div class="scroll-element primary">
+                            <img src="./img/web-banner-3.png" alt="">
+                        </div>
+                        <div class="scroll-element secondary">
+                            <img src="./img/web-banner-3.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Banner -->
+
+        <!-- CTA  -->
+        <section>
+            <div class="cta-card px-4 sm:px-16 py-24">
+                <div class="imgBox">
+                    <img class="h-full" src="./img/movie.jpg" alt="Not Found">
+                </div>
+                <div class="text-white containerNinish px-2 mx-auto py-16">
+                    <div class="backdrop-blur-0 text-center">
+                        <h3 class="text-xl sm:text-3xl font-semibold uppercase font-serif tracking-widest">The
+                            competition that transforms your love for movies and series into a thrilling journey of
+                            knowledge and creativity.
+                        </h3>
+                        <p class="text-sm sm:text-xl py-8">
+                            Our mantra is simple: 'Watch,Write & Win,' inviting participants to embark on a
+                            cinematic adventure like never before.
+                        </p>
+                    </div>
+                    <div class="mt-4 mx-auto w-fit">
+                        <button
+                            class="px-6 py-3 rounded-md bg-white/30 backdrop-blur-sm text-lg sm:text-2xl hover:bg-amber-700/30 transition-all border-x-4 border-y-4 border-transparent">Participate
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mega Event Section Start -->
+        <section id="sturucture">
+            <!-- Mega Event Start -->
+            <div class="megaEvent px-2 py-16">
+                <div class="containerNinish mx-auto">
+                    <h1 class="text-4xl sm:text-5xl pt-8 text-center galada">CineQuiz</h1>
+                    <!-- <p class="text-slate-400 text-center">শেকড়কে চেনো | মুজিবকে জানো</p> -->
+                    <div class="lg:flex justify-center items-center gap-10 mt-10">
+                        <img class="py-6 max-w-lg w-full mx-auto lg:mx-0" src="./img/logo.png"
+                            alt="Mujib Olympiad Logo">
+                        <!-- Event Cards Container -->
+                        <div class="max-w-lg w-full mx-auto lg:mx-0 mt-4 lg:mt-0">
+                            <h3 class="text-2xl text-center lg:text-start mt-4 lg:mt-0">Competition Structure:
+                            </h3>
+                            <div class="grid gap-4 mt-4 text-center lg:text-start">
+                                <!-- Event Info Card Start -->
+                                <div
+                                    class="flex flex-col lg:flex-row text-center lg:text-start gap-4 bg-amber-50 text-black p-4 rounded-xl border-amber-400 border-4 items-center">
+                                    <div
+                                        class="bg-gradient-to-tr from-slate-800 to-amber-700 px-5 py-3 text-4xl lg:px-8 lg:py-6 lg:text-6xl rounded-2xl text-white">
+                                        1
+                                    </div>
+                                    <div class="grid gap-1 items-center">
+                                        <h3 class="font-semibold text-lg">Online Registration</h3>
+                                        <p>
+                                            To participate, you need to register online. There are two segments – 'Cine
+                                            Quiz' and 'Cine Story Writing.' You can participate in either or both
+                                            segments. The registration fee is 250 taka for each segment or both.
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Event Info Card End -->
+                                <!-- Event Info Card Start -->
+                                <div
+                                    class="flex flex-col lg:flex-row gap-4 bg-amber-50 text-black p-4 rounded-xl border-amber-400 border-4 items-center">
+                                    <div
+                                        class="bg-gradient-to-tr from-slate-800 to-amber-700 px-5 py-3 text-4xl lg:px-8 lg:py-6 lg:text-6xl rounded-2xl text-white">
+                                        2
+                                    </div>
+                                    <div class="grid gap-1 items-center">
+                                        <h3 class="font-semibold text-lg">Online Exam</h3>
+                                        <p>
+                                            For the 'Cine Quiz' segment, during registration, you will choose your
+                                            preferred movie/series bundle. There will be 40 questions related to your
+                                            chosen content. You need to select the correct answers and submit them. For
+                                            'Cine Story Writing,' participants need to write a cinema-worthy story and
+                                            submit it as a PDF.
+                                            <b>Deadline for Quiz and Story Submission: February 2, 2024.
+                                            </b>
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Event Info Card End -->
+                                <!-- Event Info Card Start -->
+                                <div
+                                    class="flex flex-col lg:flex-row gap-4 bg-amber-50 text-black p-4 rounded-xl border-amber-400 border-4 items-center">
+                                    <div
+                                        class="bg-gradient-to-tr from-slate-800 to-amber-700 px-5 py-3 text-4xl lg:px-8 lg:py-6 lg:text-6xl rounded-2xl text-white">
+                                        3
+                                    </div>
+                                    <div class="grid gap-1 items-center">
+                                        <h3 class="font-semibold text-lg">Preliminary Selection</h3>
+                                        <p>
+                                            The top 200 participants with the highest scores from the <b>'Cine Quiz'</b>
+                                            segment and the top 10 storytellers will directly proceed to the gala round.
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Event Info Card End -->
+                                <!-- Event Info Card Start -->
+                                <div
+                                    class="flex flex-col lg:flex-row gap-4 bg-amber-50 text-black p-4 rounded-xl border-amber-400 border-4 items-center">
+                                    <div
+                                        class="bg-gradient-to-tr from-slate-800 to-amber-700 px-5 py-3 text-4xl lg:px-8 lg:py-6 lg:text-6xl rounded-2xl text-white">
+                                        4
+                                    </div>
+                                    <div class="grid gap-1 items-center">
+                                        <h3 class="font-semibold text-lg">Gala Round</h3>
+                                        <p>
+                                            his round will take place at a designated venue. Three winners from the
+                                            'Cine Quiz' segment and three from 'Cine Story Writing' will be announced,
+                                            each receiving a cash prize of 4 lakhs taka, a certificate, an award, a
+                                            celebrity meet-up, a Cox's Bazar-Saint Martin 3-day-2-night trip, and
+                                            additional attractive prizes from the main sponsor.
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Event Info Card End -->
+                                <div class="mt-4 mx-auto w-fit">
+                                    <button
+                                        class="px-6 py-3 rounded-md bg-black text-white text-2xl hover:bg-slate-800 transition-all border-x-4 border-y-4 border-transparent">Participate
+                                        Now</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mega Event End -->
+        </section>
+        <!-- Mega Event Section End -->
+
+        <!-- Gifts Section -->
+        <section id="prizes" class="gifts bg-gradient-to-tr from-black to-slate-950 text-white py-16 px-2">
+            <!-- Section Title Start -->
+            <div class="text-center pb-4 pt-8">
+                <h1 class="text-4xl sm:text-5xl mt-2 galada">Watch Movies, Win Prizes</h1>
+            </div>
+            <!-- Section Title End -->
+            <div class="containerNinish mx-auto px-2">
+                <!-- Winners Gift -->
+                <div class="winners text-black flex flex-col-reverse md:flex-row justify-center gap-6 my-8">
+                    <div
+                        class="winnerOne bg-slate-700 text-white px-4 lg:px-6 py-10 border-4 border-slate-400 rounded-lg">
+                        <div class="w-28 mx-auto">
+                            <img class="w-full" src="./img/medal.png" alt="">
+                        </div>
+                        <h4 class="font-bold text-center my-4 text-xl">General Prizes</h4>
+                        <!-- Gift Details -->
+                        <div class="grid mt-4 gap-2 text-start text-xl">
+                            <p>
+                                <span class="text-amber-600"><i class='bx bx-lock-open'></i></span>
+                                Each participant will receive a Certificate of Participation.
+
+                            </p>
+                            <p>
+                                <span class="text-amber-600"><i class='bx bx-certification'></i></span>
+                                Preliminary selection winners will get the chance to participate in the gala round.
+
+                            </p>
+                            <p>
+                                <span class="text-amber-600"><i class='bx bxs-diamond'></i></span>
+                                Celebrity Meet-up opportunity for gala round participants.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="grandWinner w-full bg-amber-50 px-4 lg:px-6 py-10 border-4 border-amber-400 rounded-lg">
+                        <div class="w-28 mx-auto">
+                            <img class="w-full" src="./img/trophy.png" alt="">
+                        </div>
+                        <h4 class="font-bold text-center my-4 text-xl">Gala Round Prizes:
+                        </h4>
+                        <!-- Gift Details -->
+                        <div class="grid mt-4 gap-2 text-start text-xl">
+                            <p>
+                                <span class="text-amber-600"><i class='bx bx-certification'></i></span>
+                                <b>'CineQuiz Showdown'</b> Trophy
+
+                            </p>
+                            <p>
+                                <span class="text-amber-600"><i class='bx bxs-diamond'></i></span>
+                                Winning Certificate
+                            </p>
+                            <p>
+                                <span class="text-amber-600"><i class='bx bx-star'></i></span>
+                                Celebrity Meet-up
+                            </p>
+                            <p>
+                                <span class="text-amber-600"><i class='bx bx-star'></i></span>
+                                Cox's Bazar-Saint Martin 3-day-2-night trip
+                            </p>
+                            <p>
+                                <span class="text-amber-600"><i class='bx bx-droplet'></i></span>
+                                Additional attractive prizes from the main sponsor
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CTA-->
+            <div class="mt-4 mx-auto w-fit">
+                <button
+                    class="px-6 py-3 rounded-md bg-white text-black text-lg sm:text-2xl hover:bg-slate-200 transition-all border-x-4 border-y-4 border-transparent">Participate
+                    Now</button>
+            </div>
+        </section>
+        <!-- CTA -->
+        <section>
+            <div class="cta-card px-4 sm:px-16 py-24">
+                <div class="imgBox">
+                    <img class="h-full" src="./img/series.jpg" alt="Not Found">
+                </div>
+                <div class="text-white containerNinish px-2 mx-auto py-16">
+                    <div class="backdrop-blur-0 text-center">
+                        <h3 class="text-xl sm:text-3xl font-semibold uppercase font-serif tracking-widest leading-">Ultimate
+                            winners win cash prize of <b class="galada text-5xl">4 lakhs</b> taka, along with
+                            certificates and other exciting rewards.
+                        </h3>
+                        <p class="text-sm sm:text-xl py-8">
+                            Register now and be ready to answer questions after watching movies, showcase your
+                            storytelling prowess, and win exciting prizes through 'CineQuiz Showdown - <b>watch &
+                                win'!</b>
+                        </p>
+                    </div>
+                    <div class="mt-4 mx-auto w-fit">
+                        <button
+                            class="px-6 py-3 rounded-md bg-white/30 backdrop-blur-sm text-xl sm:text-2xl hover:bg-amber-700/30 transition-all border-x-4 border-y-4 border-transparent">Participate
+                            Now</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Event Highlight -->
+        <section id="highlights" class="gifts bg-gradient-to-tr from-black to-slate-950 text-white py-16 px-2">
+            <!-- Section Title Start -->
+            <div class="text-center pb-4 pt-8">
+                <h1 class="text-4xl sm:text-5xl mt-2 galada">Event Highlights</h1>
+            </div>
+            <!-- Section Title End -->
+            <div class="containerNinish mx-auto px-2">
+                <!-- Winners Gift -->
+                <div class="text-black flex flex-col-reverse md:flex-row justify-center gap-6 my-8">
+                    <div class="w-full bg-slate-50 text-black px-4 lg:px-6 py-10 border-4 border-slate-400 rounded-lg">
+                        <div class="w-28 mx-auto">
+                            <img class="w-full" src="./img/film-reel.png" alt="">
+                        </div>
+                        <h4 class="font-bold text-center my-4 text-xl">Cine Quiz: Lights, Camera, Trivia!</h4>
+                        <!-- Gift Details -->
+                        <div class="grid mt-4 gap-2 text-start text-xl">
+                            <p>
+                                <b>How it Unfolds:</b> Dive into the world of film and series as you watch, learn, and
+                                conquer the Cine Quiz. From classic quotes to behind-the-scenes mysteries, every frame
+                                holds a clue to your victory.
+                            </p>
+                            <p>
+                                <b>Watch & Win:</b> Crack the code to cinephile glory! Every correct answer not only
+                                brings you closer to being crowned the 'Cine Quiz Champion' but also unlocks the door to
+                                exclusive awards, celebrity meet-ups, and a special tour of cinematic landmarks.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="w-full bg-amber-50 px-4 lg:px-6 py-10 border-4 border-amber-400 rounded-lg">
+                        <div class="w-28 mx-auto">
+                            <img class="w-full" src="./img/book.png" alt="">
+                        </div>
+                        <h4 class="font-bold text-center my-4 text-xl">Cine Story Writing: Script Your Cinematic Tale!
+                        </h4>
+                        <!-- Gift Details -->
+                        <div class="grid mt-4 gap-2 text-start text-xl">
+                            <p>
+                                <b>Lights, Camera, Imagination:</b> Become the storyteller you were born to be! Pen down
+                                your original script, crafting a narrative that could grace the silver screen. Your
+                                story might just be the next blockbuster in the making.
+                            </p>
+                            <p>
+                                <b>From Pen to Prize:</b> The winning story doesn't just earn accolades – it opens doors
+                                to a world of possibilities, including prize money, a chance to meet industry
+                                luminaries, and the thrill of seeing your creation come to life.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CTA-->
+            <div class="mt-4 mx-auto w-fit">
+                <button
+                    class="px-6 py-3 rounded-md bg-white text-black text-2xl hover:bg-slate-200 transition-all border-x-4 border-y-4 border-transparent">Participate
+                    Now</button>
+            </div>
+        </section>
+
+        <!-- Movie Bundle -->
+        <section id="bundles" class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
+            <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Movie Bundles</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="movie-list grid gap-4">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-preview hidden md:block">
+                    <div class="sticky top-24 bg-blue-400/30 backdrop-blur-md p-4 rounded-md">
+                        <h3 class="text-xl font-semibold border-b border-black pb-4">The Selected Bundle Has</h3>
+                        <ul class="grid gap-2 mt-4">
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Marriage Story
+                                (2019)</li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Irishman(2019)
+                            </li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>All Quiet on
+                                western front(2022)</li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Mitchells vs
+                                The Machines(2021)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Series Bundle -->
+        <section class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
+            <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Series Bundles</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="movie-list grid gap-4">
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="cardImg">
+                            <img src="./img/movie.jpg" alt="">
+                        </div>
+                        <div class="cardDetails">
+                            <h3 class="text-xl">Netflix Fab 5</h3>
+                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
+                        </div>
+                        <div class="card-movies-mobile">
+                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
+                            <ul>
+                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="movie-preview hidden md:block">
+                    <div class="sticky top-24 bg-blue-400/30 backdrop-blur-md p-4 rounded-md">
+                        <h3 class="text-xl font-semibold border-b border-black pb-4">The Selected Bundle Has</h3>
+                        <ul class="grid gap-2 mt-4">
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Marriage Story
+                                (2019)</li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Irishman(2019)
+                            </li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>All Quiet on
+                                western front(2022)</li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
+                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Mitchells vs
+                                The Machines(2021)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faqs" class="bg-gradient-to-tr from-slate-950 to-black py-16">
+            <div class="text-center pb-12 pt-8 text-white">
+                <h1 class="text-4xl sm:text-5xl mt-2 galada">FAQs</h1>
+            </div>
+            <div class="containerNinish mx-auto px-2">
+                <div class="border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+                    <h2 class="mb-0" id="headingOne">
+                        <button class="flex justify-between w-full p-4 border-b " type="button" data-te-collapse-init
+                            data-te-target="#collapseOne" aria-expanded="true">
+                            Why Join CineQuiz Showdown
+                            <span
+                                class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="!visible">
+                        <div class="px-5 py-4">
+                            <p><b>Unleash Your Inner Cinephile:</b> Immerse yourself in the magic of movies and series,
+                                exploring hidden gems and timeless classics.</p>
+                            <p class="my-4">
+                                <b> Beyond Prizes: An Experience! :</b> Winners don't just walk away with awards and
+                                prize money;
+                                they step into a realm of exclusive opportunities, celebrity encounters, and an
+                                unforgettable cinematic tour.
+                            </p>
+                            <p>
+                                Gear up for a competition that goes beyond the screen – 'CineQuiz Showdown' is not just a quiz; it's a celebration of storytelling, a rendezvous with stars, and your golden ticket to the heart of the cinematic universe. Lights, camera, action – let the showdown begin!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
+                    <h2 class="mb-0" id="headingTwo">
+                        <button
+                            class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
+                            type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#collapseTwo"
+                            aria-expanded="false" aria-controls="collapseTwo">
+                            Accordion Item #2
+                            <span
+                                class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </span>
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="!visible hidden" data-te-collapse-item aria-labelledby="headingTwo"
+                        data-te-parent="#accordionExample">
+                        <div class="px-5 py-4">
+                            <strong>This is the second item's accordion body.</strong> It is
+                            hidden by default, until the collapse plugin adds the appropriate
+                            classes that we use to style each element. These classes control
+                            the overall appearance, as well as the showing and hiding via CSS
+                            transitions. You can modify any of this with custom CSS or
+                            overriding our default variables. It's also worth noting that just
+                            about any HTML can go within the <code>.accordion-body</code>,
+                            though the transition does limit overflow.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Start -->
+    <footer class="border-t py-8 bg-white">
+        <!-- Footer Container -->
+        <div class="containerNinish mx-auto px-2">
+            <div class="grid grid-cols-1 md:grid-cols-3 text-center md:text-start">
+                <!-- Company Information -->
+                <div class="companySlogan w-full justify-self-center md:justify-self-start py-3 md:py-0">
+                    <div class="logo mx-auto md:mx-0">
+                        <img src="./img/b-logo.png" alt="Ninish Logo">
+                    </div>
+                    <div class="slogan pt-4">
+                        A Co-curricular Edu-Tech Platform
+                    </div>
+                </div>
+                <!-- Important Navigation Links -->
+                <div
+                    class="footerNavLinks w-full justify-self-center md:justify-self-start border-t md:border-none py-3 md:py-0">
+                    <h5 class="text-lg font-bold">Important Links</h5>
+                    <ul class="text-center md:text-start grid gap-2 mt-2">
+                        <li><a href="#home" class="importantLink">CineQuiz</a></li>
+                        <li><a href="./about.html" class="importantLink">About Ninish</a></li>
+                        <li>
+                            <a href="https://account.ninish.com" class="importantLink">Register for CineQuiz</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Footer Contact -->
+                <div
+                    class="footerContact w-full justify-self-center md:justify-self-start border-t md:border-none py-3 md:py-0">
+                    <h5 class="text-lg font-bold">Contact us</h5>
+                    <div class="text-center md:text-start mt-2">
+                        <div>
+                            <p>Call: <a href="tel:01793000873" class="contactInfo">01793000873</a>,
+                                <a href="tel:01330370570" class="contactInfo">01330370570</a>,
+                                <a href="tel:01952863855" class="contactInfo">01952863855</a>
+                            </p>
+
+                            <p>Email: <a href="mailto:info@ninish.com" class="contactInfo">info@ninish.com</a></p>
+                        </div>
+                        <!-- Social Media Links -->
+                        <div class="socialLinks border-t md:border-0 pt-2 mt-4 md:mt-0 text-4xl">
+                            <a href="/">
+                                <i class='bx bxl-facebook-circle cursor-pointer text-2xl'></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright Message -->
+            <p class="text-center md:pt-8">©Copyright 2023. All Rights Reserved By Ninish</p>
+        </div>
+    </footer>
+    <!-- Footer End -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Application JS -->
+    <script src="./js/nav.js"></script>
+
+    <script>
+        let imgInitialHeight = null;
+        let scrollParents = document.querySelectorAll(".scroll-parent");
+
+        const infiniteScroll = () => {
+            scrollParents.forEach(item => {
+                let img = item.querySelector("img");
+                let scrollElementPrimary = item.querySelector(".scroll-element.primary");
+                let scrollElementSecondary = item.querySelector(".scroll-element.secondary");
+                let height = img.height;
+
+                let duration = item.getAttribute("data-duration");
+                imgInitialHeight = height;
+
+                scrollElementPrimary.animate(
+                    [
+                        { top: "0px" },
+                        { top: `-${height + 20}px` }
+                    ], {
+                    duration: Number(duration) * 1000,
+                    iterations: Infinity,
+                }
+                )
+                scrollElementSecondary.animate(
+                    [
+                        { top: `${height + 50}px` },
+                        { top: "0" }
+                    ], {
+                    duration: Number(duration) * 1000,
+                    iterations: Infinity,
+                }
+                )
+            })
+        }
+
+        infiniteScroll();
+
+        window.onresize = () => {
+            let img = document.querySelector(".scroll-element").querySelector("img");
+            let height = img.height;
+            if (imgInitialHeight !== height) infiniteScroll();
+        }
+    </script>
+</body>
+</html>

@@ -7,6 +7,10 @@
     --bg-color: #F4F7FD;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: var(--bg-color);
     font-family: "Noto Sans Bengali", sans-serif;
@@ -38,10 +42,6 @@ body {
     align-items: center;
     display: flex;
     justify-content: center;
-}
-
-header {
-    background: white;
 }
 
 nav i {
@@ -94,6 +94,11 @@ nav .eventNavLinkMobile:hover {
     transform: translateX(-20%);
 }
 
+.mobileNavLinks {
+    top: 70px;
+    width: 100%;
+}
+
 .mobileNavLinks ul {
     width: 100%;
 }
@@ -129,6 +134,7 @@ nav .eventNavLinkMobile:hover {
 
 img {
     width: 100%;
+    /* height: 100%; */
     object-fit: cover;
 }
 
