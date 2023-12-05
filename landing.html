@@ -503,15 +503,6 @@
         <section id="bundles" class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
             <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Movie Bundles</h1>
             <div class="gap-4">
-                <div class="my-4">
-                    <div class="bg-blue-400/30 backdrop-blur-md p-4 rounded-md">
-                        <h3 class="movie-header text-xl font-semibold border-b border-black pb-4">No Bundle Selected
-                        </h3>
-                        <ul class="movie-preview grid gap-2 mt-4">
-                            <!-- Dynamically Rendered -->
-                        </ul>
-                    </div>
-                </div>
                 <div class="movie-list owl-carousel owl-theme">
                     <!-- Dynamically Rendered -->
                 </div>
@@ -521,15 +512,6 @@
         <!-- Series Bundle -->
         <section class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
             <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Series Bundles</h1>
-            <div>
-                <div class="gap-4">
-                    <div class="bg-blue-400/30 backdrop-blur-md p-4 rounded-md my-4">
-                        <h3 class="series-header text-xl font-semibold border-b border-black pb-4">No Bundle Selected</h3>
-                        <ul class="series-preview grid gap-2 mt-4">
-                            <!-- Dynamically Added -->
-                        </ul>
-                    </div>
-                </div>
                 <div class="series-list grid gap-4 owl-carousel owl-theme">
                     <!-- Dynamically Rendered -->
                 </div>
@@ -825,83 +807,56 @@
             },
         ]
 
-
-        const initializeMovieCardListener = () => {
-            $(".movie-card").each((ind, item) => {
-                item.addEventListener("click", e => {
-                    $(".movie-header").html("Selected Movie Bundle Has ->");
-                    let target = item.getAttribute("data-target");
-                    $(".movie-preview").html("");
-                    movieBundle.map(item => {
-                        let str = "";
-                        if (item.slug === target) {
-                            item.movies.map((movie) => {
-                                str += `<li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>${movie.name}</li>`;
-                            })
-                            $(".movie-preview").append(str);
-                        }
-                    })
-                })
-            })
-        }
-
-        const initializeSeriesCardListener = () => {
-            $(".series-card").each((ind, item) => {
-                item.addEventListener("click", e => {
-                    $(".series-header").html("Selected Series Bundle Has ->");
-                    let target = item.getAttribute("data-target");
-                    $(".series-preview").html("");
-                    seriesBundle.map(item => {
-                        let str = "";
-                        if (item.slug === target) {
-                            item.series.map((series) => {
-                                str += `<li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>${series.name}</li>`;
-                            })
-                            $(".series-preview").append(str);
-                        }
-                    })
-                })
-            })
-        }
-
         const renderMovieCards = () => {
             $(".movie-list").html("");
             movieBundle.map(item => {
-                let str = `<div class="card movie-card"  data-target="${item.slug}">
-                    <div class="cardImg">
-                        <img class="h-full" src="${item.image}" alt="${item.image}">
+                let str = `<div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="${item.image}" alt="Avatar">
                     </div>
-                    <div class="cardDetails">
-                        <h3 class="text-xl">${item.name}</h3>                       
+                    <div class="flip-card-back">
+                        <h3 class="text-xl">${item.name}</h3>
+                        <ul>`;
+                        item.movies.map(movie => {
+                            str += `<li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>${movie.name}</li>`
+                        })
+                       
+                     str +=`</ul>
+                        </div>
                     </div>
                 </div>`;
-
                 $(".movie-list").append(str);
             });
-            initializeMovieCardListener();
         };
 
         const renderSeriesCards = () => {
             $(".series-list").html("");
             seriesBundle.map(item => {
-                let str = `<div class="card series-card" data-target="${item.slug}">
-                    <div class="cardImg">
-                        <img class="h-full" src="${item.image}" alt="${item.image}">
+                let str = `<div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="${item.image}" alt="Avatar">
                     </div>
-                    <div class="cardDetails">
+                    <div class="flip-card-back">
                         <h3 class="text-xl">${item.name}</h3>
+                        <ul>`;
+                        item.series.map(e => {
+                            str += `<li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>${e.name}</li>`
+                        })
+                       
+                     str +=`</ul>
+                        </div>
                     </div>
                 </div>`;
-
                 $(".series-list").append(str);
-
-                initializeSeriesCardListener();
             })
         };
 
         $("document").ready(() => {
             renderMovieCards();
             renderSeriesCards();
+            infiniteScroll();
             $(".owl-carousel").owlCarousel({
                 items: 2,
                 margin: 20,
