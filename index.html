@@ -178,24 +178,34 @@
                                 </div>
                             </div>
                             <div class="step step-4">
-                                <div class="stepsBody phoneInputContainer grid gap-2 my-4 py-4">
-                                    <label for="phone" class="font-semibold">Enter Your Number</label>
-                                    <!-- Input -->
-                                    <div class="flex mt-2">
-                                        <div
-                                            class="flex items-center px-2 bg-slate-800 border border-r-0 border-slate-300 rounded-l-md">
-                                            <span class="mt-1 text-slate-200">
-                                                +88
-                                            </span>
+                                <div class="stepsBody grid gap-2 my-4 py-4">
+                                    <p class="text-white text-center font-semibold bg-red-700 py-2 rounded-md">The Number Provided is already in use. Try another one.</p>
+                                    <div>
+                                      <label for="phone" class="font-semibold">Enter Your Number</label>
+                                      <!-- Input -->
+                                      <div class="flex mt-2">
+                                        <div class="flex items-center px-2 bg-slate-800 border border-r-0 border-slate-300 rounded-l-md">
+                                          <span class="mt-1 text-slate-200"> +88 </span>
                                         </div>
                                         <!-- Input Container -->
                                         <div class="w-full">
-                                            <input type="number" id="phone" name="phone" placeholder="01XXXXXXXXX"
-                                                class="py-1 rounded-r-md bg-slate-50 border border-gray-300 px-2 text-lg w-full "
-                                                required>
+                                          <input type="number" id="phone" name="phone" placeholder="01XXXXXXXXX"
+                                            class="py-1 rounded-r-md bg-slate-50 border border-gray-300 px-2 text-lg w-full" required />
                                         </div>
+                                      </div>
                                     </div>
-                                </div>
+                                    <div class="mt-4">
+                                      <label for="dob" class="font-semibold">Enter Your Birth Date</label>
+                                      <!-- Input -->
+                                      <div>
+                                        <!-- Input Container -->
+                                        <div class="w-full">
+                                          <input type="date" id="dob" name="dob"
+                                            class="py-1 rounded-md bg-slate-50 border border-gray-300 px-2 text-lg w-full" required />
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
                                 <div class="stepFooter flex justify-end gap-2">
                                     <button type="button" class="btn" id="step-4-prev-btn">
                                         <i class='bx bx-left-arrow-alt'></i> Previous

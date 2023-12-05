@@ -11,6 +11,9 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 
+    <link rel="stylesheet" href="./js/owlcarousel/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="./js/owlcarousel/assets/owl.theme.default.min.css">
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
 
@@ -50,6 +53,7 @@
                 width: 100%;
             }
         }
+
         @media screen and (max-width: 400px) {
             .infinite-scroll {
                 height: 400px;
@@ -108,16 +112,20 @@
             <nav class="hidden md:block desktopNavLinks">
                 <ul class="flex gap-2">
                     <li>
-                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white"  href="#prizes">Prizes</a>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white"
+                            href="#prizes">Prizes</a>
                     </li>
                     <li>
-                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white" href="#highlights">Highlights</a>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white"
+                            href="#highlights">Highlights</a>
                     </li>
                     <li>
-                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white" href="#bundles">Bundles</a>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white"
+                            href="#bundles">Bundles</a>
                     </li>
                     <li>
-                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white" href="#faqs">FAQs</a>
+                        <a class="bg-black/50 backdrop-blur-lg rounded-md hover:text-white border-2 border-transparent hover:border-amber-400 text-white"
+                            href="#faqs">FAQs</a>
                     </li>
                 </ul>
             </nav>
@@ -161,8 +169,7 @@
                         <p class="text-slate-400">Where Movie Magic Meets Creative Brilliance!</p>
                     </div>
                     <div class="banner-btns flex gap-4 justify-center mt-4">
-                        <a
-                        href="#sturucture"
+                        <a href="#sturucture"
                             class="px-4 py-2 text-white hover:text-white sm:px-6 sm:py-3 rounded-md bg-white/30 backdrop-blur-sm text-lg sm:text-2xl hover:bg-amber-700/30 transition-all border-x-4 border-y-4 border-transparent">Know
                             More</a>
                         <button
@@ -413,7 +420,8 @@
                 </div>
                 <div class="text-white containerNinish px-2 mx-auto py-16">
                     <div class="backdrop-blur-0 text-center">
-                        <h3 class="text-xl sm:text-3xl font-semibold uppercase font-serif tracking-widest leading-">Ultimate
+                        <h3 class="text-xl sm:text-3xl font-semibold uppercase font-serif tracking-widest leading-">
+                            Ultimate
                             winners win cash prize of <b class="galada text-5xl">4 lakhs</b> taka, along with
                             certificates and other exciting rewards.
                         </h3>
@@ -494,100 +502,18 @@
         <!-- Movie Bundle -->
         <section id="bundles" class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
             <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Movie Bundles</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="movie-list grid gap-4">
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="movie-preview hidden md:block">
-                    <div class="sticky top-24 bg-blue-400/30 backdrop-blur-md p-4 rounded-md">
-                        <h3 class="text-xl font-semibold border-b border-black pb-4">The Selected Bundle Has</h3>
-                        <ul class="grid gap-2 mt-4">
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Marriage Story
-                                (2019)</li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Irishman(2019)
-                            </li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>All Quiet on
-                                western front(2022)</li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Mitchells vs
-                                The Machines(2021)</li>
+            <div class="gap-4">
+                <div class="my-4">
+                    <div class="bg-blue-400/30 backdrop-blur-md p-4 rounded-md">
+                        <h3 class="movie-header text-xl font-semibold border-b border-black pb-4">No Bundle Selected
+                        </h3>
+                        <ul class="movie-preview grid gap-2 mt-4">
+                            <!-- Dynamically Rendered -->
                         </ul>
                     </div>
+                </div>
+                <div class="movie-list owl-carousel owl-theme">
+                    <!-- Dynamically Rendered -->
                 </div>
             </div>
         </section>
@@ -595,100 +521,17 @@
         <!-- Series Bundle -->
         <section class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
             <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Series Bundles</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="movie-list grid gap-4">
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="cardImg">
-                            <img src="./img/movie.jpg" alt="">
-                        </div>
-                        <div class="cardDetails">
-                            <h3 class="text-xl">Netflix Fab 5</h3>
-                            <span><i class='bx bx-right-down-arrow-circle text-2xl'></i></span>
-                        </div>
-                        <div class="card-movies-mobile">
-                            <h3 class="text-xl font-mono mb-4">Netflix Fab 5</h3>
-                            <ul>
-                                <li><i class='bx bx-arrow-from-left'></i>Marriage Story (2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Irishman(2019)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>All Quiet on western front(2022)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                                <li><i class='bx bx-arrow-from-left'></i>The Mitchells vs The Machines(2021)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="movie-preview hidden md:block">
-                    <div class="sticky top-24 bg-blue-400/30 backdrop-blur-md p-4 rounded-md">
-                        <h3 class="text-xl font-semibold border-b border-black pb-4">The Selected Bundle Has</h3>
-                        <ul class="grid gap-2 mt-4">
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Marriage Story
-                                (2019)</li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Irishman(2019)
-                            </li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>All Quiet on
-                                western front(2022)</li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>Roma(2018)</li>
-                            <li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>The Mitchells vs
-                                The Machines(2021)</li>
+            <div>
+                <div class="gap-4">
+                    <div class="bg-blue-400/30 backdrop-blur-md p-4 rounded-md my-4">
+                        <h3 class="series-header text-xl font-semibold border-b border-black pb-4">No Bundle Selected</h3>
+                        <ul class="series-preview grid gap-2 mt-4">
+                            <!-- Dynamically Added -->
                         </ul>
                     </div>
+                </div>
+                <div class="series-list grid gap-4 owl-carousel owl-theme">
+                    <!-- Dynamically Rendered -->
                 </div>
             </div>
         </section>
@@ -725,7 +568,10 @@
                                 unforgettable cinematic tour.
                             </p>
                             <p>
-                                Gear up for a competition that goes beyond the screen – 'CineQuiz Showdown' is not just a quiz; it's a celebration of storytelling, a rendezvous with stars, and your golden ticket to the heart of the cinematic universe. Lights, camera, action – let the showdown begin!
+                                Gear up for a competition that goes beyond the screen – 'CineQuiz Showdown' is not just
+                                a quiz; it's a celebration of storytelling, a rendezvous with stars, and your golden
+                                ticket to the heart of the cinematic universe. Lights, camera, action – let the showdown
+                                begin!
                             </p>
                         </div>
                     </div>
@@ -822,6 +668,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./js/owlcarousel/owl.carousel.min.js"></script>
     <!-- Application JS -->
     <script src="./js/nav.js"></script>
 
@@ -835,10 +683,9 @@
                 let scrollElementPrimary = item.querySelector(".scroll-element.primary");
                 let scrollElementSecondary = item.querySelector(".scroll-element.secondary");
                 let height = img.height;
-                
+
                 let duration = item.getAttribute("data-duration");
                 imgInitialHeight = height;
-                console.log(height);
 
                 scrollElementPrimary.animate(
                     [
@@ -860,17 +707,208 @@
                 )
             })
         }
-
-        infiniteScroll();
-
         let initialWidth = document.querySelector("main").clientWidth;
 
         window.onresize = () => {
             // console.log(document.querySelector("main").clientWidth);
             let img = document.querySelector(".scroll-element").querySelector("img");
             let height = img.height;
-            if (initialWidth !== document.querySelector("main").clientWidth) infiniteScroll();
+            if (initialWidth !== document.querySelector("main").clientWidth &&
+                height !== imgInitialHeight) infiniteScroll();
         }
     </script>
+    <script>
+        const movieBundle =
+            [
+                {
+                    id: 1,
+                    name: "Netflix Bundle",
+                    image: " ./img/movie.jpg",
+                    slug: "netflix",
+                    movies: [
+                        {
+                            id: 1,
+                            name: "Hannibal"
+                        },
+                        {
+                            id: 2,
+                            name: "Money Heist"
+                        },
+                        {
+                            id: 3,
+                            name: "Barbey"
+                        },
+                    ]
+                },
+                {
+                    id: 2,
+                    name: "Binge Bundle",
+                    image: " ./img/movie.jpg",
+                    slug: "binge",
+                    movies: [
+                        {
+                            id: 1,
+                            name: "List 2"
+                        },
+                        {
+                            id: 2,
+                            name: "Money Heist"
+                        },
+                        {
+                            id: 3,
+                            name: "Barbey"
+                        },
+                    ]
+                },
+                {
+                    id: 3,
+                    name: "Cringe Bundle",
+                    image: " ./img/movie.jpg",
+                    slug: "cringe",
+                    movies: [
+                        {
+                            id: 1,
+                            name: "List 3"
+                        },
+                        {
+                            id: 2,
+                            name: "Money Heist"
+                        },
+                        {
+                            id: 3,
+                            name: "Barbey"
+                        },
+                    ]
+                },
+            ]
+
+        const seriesBundle = [
+            {
+                id: 1,
+                name: "Friends",
+                image: " ./img/series.jpg",
+                slug: "friends",
+                series: [
+                    {
+                        id: 1,
+                        name: "Friends"
+                    },
+                    {
+                        id: 2,
+                        name: "Money Heist"
+                    },
+                    {
+                        id: 3,
+                        name: "Barbey"
+                    },
+                ]
+            },
+            {
+                id: 2,
+                name: "Death Note",
+                image: " ./img/series.jpg",
+                slug: "death_note",
+                series: [
+                    {
+                        id: 1,
+                        name: "Death Note"
+                    },
+                    {
+                        id: 2,
+                        name: "Money Heist"
+                    },
+                    {
+                        id: 3,
+                        name: "Barbey"
+                    },
+                ]
+            },
+        ]
+
+
+        const initializeMovieCardListener = () => {
+            $(".movie-card").each((ind, item) => {
+                item.addEventListener("click", e => {
+                    $(".movie-header").html("Selected Movie Bundle Has ->");
+                    let target = item.getAttribute("data-target");
+                    $(".movie-preview").html("");
+                    movieBundle.map(item => {
+                        let str = "";
+                        if (item.slug === target) {
+                            item.movies.map((movie) => {
+                                str += `<li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>${movie.name}</li>`;
+                            })
+                            $(".movie-preview").append(str);
+                        }
+                    })
+                })
+            })
+        }
+
+        const initializeSeriesCardListener = () => {
+            $(".series-card").each((ind, item) => {
+                item.addEventListener("click", e => {
+                    $(".series-header").html("Selected Series Bundle Has ->");
+                    let target = item.getAttribute("data-target");
+                    $(".series-preview").html("");
+                    seriesBundle.map(item => {
+                        let str = "";
+                        if (item.slug === target) {
+                            item.series.map((series) => {
+                                str += `<li class="flex gap-2 items-center"><i class='bx bx-arrow-from-left'></i>${series.name}</li>`;
+                            })
+                            $(".series-preview").append(str);
+                        }
+                    })
+                })
+            })
+        }
+
+        const renderMovieCards = () => {
+            $(".movie-list").html("");
+            movieBundle.map(item => {
+                let str = `<div class="card movie-card"  data-target="${item.slug}">
+                    <div class="cardImg">
+                        <img class="h-full" src="${item.image}" alt="${item.image}">
+                    </div>
+                    <div class="cardDetails">
+                        <h3 class="text-xl">${item.name}</h3>                       
+                    </div>
+                </div>`;
+
+                $(".movie-list").append(str);
+            });
+            initializeMovieCardListener();
+        };
+
+        const renderSeriesCards = () => {
+            $(".series-list").html("");
+            seriesBundle.map(item => {
+                let str = `<div class="card series-card" data-target="${item.slug}">
+                    <div class="cardImg">
+                        <img class="h-full" src="${item.image}" alt="${item.image}">
+                    </div>
+                    <div class="cardDetails">
+                        <h3 class="text-xl">${item.name}</h3>
+                    </div>
+                </div>`;
+
+                $(".series-list").append(str);
+
+                initializeSeriesCardListener();
+            })
+        };
+
+        $("document").ready(() => {
+            renderMovieCards();
+            renderSeriesCards();
+            $(".owl-carousel").owlCarousel({
+                items: 2,
+                margin: 20,
+                dots: true,
+            });
+        })
+    </script>
 </body>
+
 </html>

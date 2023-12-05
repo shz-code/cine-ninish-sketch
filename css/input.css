@@ -38,44 +38,6 @@
     @apply absolute h-full w-full top-0 left-0 grayscale transition-all
 }
 
-.card {
-    @apply bg-black text-white pt-10 pb-10 hover:pb-60 md:hover:pb-10 px-10 rounded-md cursor-pointer w-full relative overflow-hidden transition-all;
-}
-
-.card .cardImg {
-    @apply absolute h-full w-full top-0 left-0 grayscale transition-all
-}
-
-.card:hover .cardImg {
-    @apply grayscale-0
-}
-
-.card .cardDetails {
-    @apply py-6 px-4 backdrop-blur-sm bg-white/30 rounded-md transition-all font-mono shadow-md font-semibold;
-    @apply flex justify-between items-center
-}
-
-.card .cardDetails i {
-    @apply transition-all p-2 rounded-full bg-black/50 backdrop-blur-lg
-}
-
-.card:hover .cardDetails i {
-    @apply rotate-180 md:rotate-0 transition-all
-}
-
-.card-movies-mobile {
-    @apply absolute w-fit top-0 right-0 mt-44 backdrop-blur-lg bg-slate-800/80 rounded-s-md py-6 px-10 shadow-sm
-}
-
-.card-movies-mobile ul{
-    @apply grid gap-2 text-xs
-}
-
-.card-movies-mobile ul li{
-    @apply flex gap-4 items-center
-}
-
-
 
 .bundleCard.selected .bundleImgBox {
     @apply grayscale-0 transition-all
@@ -109,4 +71,24 @@
 /* Dashboard */
 .dashboard-input{
     @apply rounded-md text-black mt-3 w-full p-3 bg-slate-50 border;
+}
+
+/* Landing cards */
+
+.card {
+    @apply bg-black h-80 text-white px-2 sm:px-10 rounded-md cursor-pointer w-full relative overflow-hidden transition-all;
+    @apply flex justify-center items-center
+}
+
+.card .cardImg {
+    @apply absolute h-full w-full top-0 left-0 grayscale transition-all
+}
+
+.card .cardDetails {
+    @apply py-12 px-4 backdrop-blur-lg bg-white/30 rounded-md transition-all font-serif shadow-md font-semibold;
+    @apply w-full flex justify-center
+}
+
+.card .cardDetails i {
+    @apply transition-all p-2 rounded-full bg-black/50 backdrop-blur-lg
 }
