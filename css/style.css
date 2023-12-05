@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@400;600;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
 :root {
     --primary-color: #B86F08;
@@ -13,7 +13,7 @@ html{
 
 body {
     background: var(--bg-color);
-    font-family: "Noto Sans Bengali", sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .containerNinish {

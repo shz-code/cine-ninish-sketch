@@ -15,10 +15,10 @@
     <link rel="stylesheet" href="./js/owlcarousel/assets/owl.theme.default.min.css">
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=font-bold&display=swap');
 
         .galada {
-            font-family: 'Galada', cursive;
+            font-family: 'galada', cursive;
         }
 
         .infinite-scroll {
@@ -215,7 +215,7 @@
                 </div>
                 <div class="text-white containerNinish px-2 mx-auto py-16">
                     <div class="backdrop-blur-0 text-center">
-                        <h3 class="text-xl sm:text-3xl font-semibold uppercase font-serif tracking-widest">The
+                        <h3 class="text-xl sm:text-3xl font-semibold uppercase tracking-widest">The
                             competition that transforms your love for movies and series into a thrilling journey of
                             knowledge and creativity.
                         </h3>
@@ -238,8 +238,7 @@
             <!-- Mega Event Start -->
             <div class="megaEvent px-2 py-16">
                 <div class="containerNinish mx-auto">
-                    <h1 class="text-4xl sm:text-5xl pt-8 text-center galada">CineQuiz</h1>
-                    <!-- <p class="text-slate-400 text-center">শেকড়কে চেনো | মুজিবকে জানো</p> -->
+                    <h1 class="text-4xl sm:text-5xl pt-8 text-center font-bold">CineQuiz</h1>
                     <div class="lg:flex justify-center items-center gap-10 mt-10">
                         <img class="py-6 max-w-lg w-full mx-auto lg:mx-0" src="./img/logo.png"
                             alt="Mujib Olympiad Logo">
@@ -342,7 +341,7 @@
         <section id="prizes" class="gifts bg-gradient-to-tr from-black to-slate-950 text-white py-16 px-2">
             <!-- Section Title Start -->
             <div class="text-center pb-4 pt-8">
-                <h1 class="text-4xl sm:text-5xl mt-2 galada">Watch Movies, Win Prizes</h1>
+                <h1 class="text-4xl sm:text-5xl mt-2 font-bold">Watch Movies, Win Prizes</h1>
             </div>
             <!-- Section Title End -->
             <div class="containerNinish mx-auto px-2">
@@ -420,9 +419,14 @@
                 </div>
                 <div class="text-white containerNinish px-2 mx-auto py-16">
                     <div class="backdrop-blur-0 text-center">
-                        <h3 class="text-xl sm:text-3xl font-semibold uppercase font-serif tracking-widest leading-">
+                        <h3 class="text-xl sm:text-3xl font-semibold uppercase tracking-widest">
                             Ultimate
-                            winners win cash prize of <b class="galada text-5xl">4 lakhs</b> taka, along with
+                            winners win cash prize of 
+                            <div class="flex flex-col items-center justify-center gap-2 my-4">
+                                <img class="w-20" src="./img/money.png" alt=""> 
+                                <b class="font-bold text-5xl my-4 inline-block">4 lakhs</b> 
+                            </div>
+                            taka, along with
                             certificates and other exciting rewards.
                         </h3>
                         <p class="text-sm sm:text-xl py-8">
@@ -443,7 +447,7 @@
         <section id="highlights" class="gifts bg-gradient-to-tr from-black to-slate-950 text-white py-16 px-2">
             <!-- Section Title Start -->
             <div class="text-center pb-4 pt-8">
-                <h1 class="text-4xl sm:text-5xl mt-2 galada">Event Highlights</h1>
+                <h1 class="text-4xl sm:text-5xl mt-2 font-bold">Event Highlights</h1>
             </div>
             <!-- Section Title End -->
             <div class="containerNinish mx-auto px-2">
@@ -501,7 +505,7 @@
 
         <!-- Movie Bundle -->
         <section id="bundles" class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
-            <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Movie Bundles</h1>
+            <h1 class="text-4xl sm:text-5xl mb-8 text-center font-bold">Movie Bundles</h1>
             <div class="gap-4">
                 <div class="movie-list owl-carousel owl-theme">
                     <!-- Dynamically Rendered -->
@@ -511,7 +515,7 @@
 
         <!-- Series Bundle -->
         <section class="containerNinish mx-auto movies px-2 sm:px-8 py-20 bg-white my-20 rounded-md">
-            <h1 class="text-4xl sm:text-5xl mb-8 text-center galada">Series Bundles</h1>
+            <h1 class="text-4xl sm:text-5xl mb-8 text-center font-bold">Series Bundles</h1>
                 <div class="series-list grid gap-4 owl-carousel owl-theme">
                     <!-- Dynamically Rendered -->
                 </div>
@@ -521,25 +525,20 @@
         <!-- FAQ -->
         <section id="faqs" class="bg-gradient-to-tr from-slate-950 to-black py-16">
             <div class="text-center pb-12 pt-8 text-white">
-                <h1 class="text-4xl sm:text-5xl mt-2 galada">FAQs</h1>
+                <h1 class="text-4xl sm:text-5xl mt-2 font-bold">FAQs</h1>
             </div>
             <div class="containerNinish mx-auto px-2">
-                <div class="border border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
-                    <h2 class="mb-0" id="headingOne">
-                        <button class="flex justify-between w-full p-4 border-b " type="button" data-te-collapse-init
-                            data-te-target="#collapseOne" aria-expanded="true">
+                <div class="bg-white faq1-container">
+                    <h2 class="mb-0">
+                        <button class="flex fag-btn justify-between w-full p-4 border-b" type="button" 
+                            data-target="#faq1">
                             Why Join CineQuiz Showdown
-                            <span
-                                class="ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
+                            <span class="icon">
+                                <i class='bx bx-chevron-up text-4xl'></i>
                             </span>
                         </button>
                     </h2>
-                    <div id="collapseOne" class="!visible">
+                    <div id="faq1">
                         <div class="px-5 py-4">
                             <p><b>Unleash Your Inner Cinephile:</b> Immerse yourself in the magic of movies and series,
                                 exploring hidden gems and timeless classics.</p>
@@ -558,34 +557,28 @@
                         </div>
                     </div>
                 </div>
-                <div class="border border-t-0 border-neutral-200 bg-white dark:border-neutral-600 dark:bg-neutral-800">
-                    <h2 class="mb-0" id="headingTwo">
-                        <button
-                            class="group relative flex w-full items-center rounded-none border-0 bg-white px-5 py-4 text-left text-base text-neutral-800 transition [overflow-anchor:none] hover:z-[2] focus:z-[3] focus:outline-none dark:bg-neutral-800 dark:text-white [&:not([data-te-collapse-collapsed])]:bg-white [&:not([data-te-collapse-collapsed])]:text-primary [&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(229,231,235)] dark:[&:not([data-te-collapse-collapsed])]:bg-neutral-800 dark:[&:not([data-te-collapse-collapsed])]:text-primary-400 dark:[&:not([data-te-collapse-collapsed])]:[box-shadow:inset_0_-1px_0_rgba(75,85,99)]"
-                            type="button" data-te-collapse-init data-te-collapse-collapsed data-te-target="#collapseTwo"
-                            aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
-                            <span
-                                class="-mr-1 ml-auto h-5 w-5 shrink-0 rotate-[-180deg] fill-[#336dec] transition-transform duration-200 ease-in-out group-[[data-te-collapse-collapsed]]:mr-0 group-[[data-te-collapse-collapsed]]:rotate-0 group-[[data-te-collapse-collapsed]]:fill-[#212529] motion-reduce:transition-none dark:fill-blue-300 dark:group-[[data-te-collapse-collapsed]]:fill-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                                    stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
-                                    <path stroke-linecap="round" stroke-linejoin="round"
-                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                                </svg>
+                <div class="bg-white faq2-container">
+                    <h2 class="mb-0">
+                        <button class="flex fag-btn justify-between w-full p-4 border-b border-t" type="button" 
+                            data-target="#faq2">
+                            Event Details: 
+                            <span class="icon">
+                                <i class='bx bx-chevron-up text-4xl'></i>
                             </span>
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="!visible hidden" data-te-collapse-item aria-labelledby="headingTwo"
-                        data-te-parent="#accordionExample">
+                    <div id="faq2"  style="display: none;">
                         <div class="px-5 py-4">
-                            <strong>This is the second item's accordion body.</strong> It is
-                            hidden by default, until the collapse plugin adds the appropriate
-                            classes that we use to style each element. These classes control
-                            the overall appearance, as well as the showing and hiding via CSS
-                            transitions. You can modify any of this with custom CSS or
-                            overriding our default variables. It's also worth noting that just
-                            about any HTML can go within the <code>.accordion-body</code>,
-                            though the transition does limit overflow.
+                            <p>We've all seen Shah Rukh Khan's movie 'Chak De! India' for sure. If you were asked the question about Shah Rukh Khan's character's name in the movie 'Chak De! India', what would your answer be? Considering characters like 'Kabir Khan' and 'Major Samar Anand' since it was a double role! How would it be if you could win 4 lakhs in cash and other prizes, including a trip to Cox's Bazar-Saint Martin and a celebrity meet-up, by answering such questions after watching a movie?
+                            </p>
+                            <p class="my-4">
+                                Imagine participating in the 'CineQuiz Showdown,' where you not only answer questions about movies but also showcase your storytelling skills in the 'Cine Story Writing' segment. Top 3 storytellers will get the chance to see their stories transformed into Bengali films or telefilms.
+
+                            </p>
+                            <p>
+                                So, it's not just about entertainment; it's about realizing your dreams through the 'CineQuiz Showdown.' And what if your celebrity meet-up includes 25 familiar faces from the Bengali film industry? No doubt, it's a complete entertainment package!
+
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -812,8 +805,9 @@
             movieBundle.map(item => {
                 let str = `<div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="${item.image}" alt="Avatar">
+                    <div class="flip-card-front relative">
+                        <img src="${item.image}" alt="${item.image}">
+                        <h3 class="text-3xl absolute text-white top-0 left-0 font-semibold h-full w-full bg-black/60 flex justify-center items-center">${item.name}</h3>
                     </div>
                     <div class="flip-card-back">
                         <h3 class="text-xl">${item.name}</h3>
@@ -835,8 +829,9 @@
             seriesBundle.map(item => {
                 let str = `<div class="flip-card">
                 <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <img src="${item.image}" alt="Avatar">
+                    <div class="flip-card-front relative">
+                        <img src="${item.image}" alt="${item.image}">
+                        <h3 class="text-3xl absolute text-white top-0 left-0 font-semibold h-full w-full bg-black/60 flex justify-center items-center">${item.name}</h3>
                     </div>
                     <div class="flip-card-back">
                         <h3 class="text-xl">${item.name}</h3>
@@ -862,6 +857,13 @@
                 margin: 20,
                 dots: true,
             });
+
+            $(".fag-btn").each((ind,item) => {
+                item.addEventListener("click" , (e) => {
+                    let target = item.getAttribute("data-target");
+                    $(target).toggle("visible");
+                })
+            })
         })
     </script>
 </body>
