@@ -149,7 +149,7 @@ img {
 .cineMovie {
     position: relative;
     background: url(../img/movie-bg.png)no-repeat center center/cover;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .cineMovie::after {
@@ -162,13 +162,13 @@ img {
     background: black;
     /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
     opacity: 0.8;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .cineStory {
     position: relative;
     background: url(../img/story.png)no-repeat center bottom/cover;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .cineStory::after {
@@ -181,7 +181,7 @@ img {
     background: black;
     /* background: linear-gradient(360deg,black,rgba(0, 0, 0, 0.637)); */
     opacity: 0.8;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .cineMovie-movie {
