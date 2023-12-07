@@ -66,8 +66,25 @@
 
     <main class="pt-16 px-2">
         <!-- Announcement -->
+        <section class="mt-16 px-2">
+            <div class="max-w-[900px] bg-white mx-auto px-4 py-8 rounded-md shadow-md">
+                <h3 class="font-semibold text-xl mb-4">Special Note:</h3>
+                <p class="flex gap-4 border-b pb-4">
+                    <i class='bx bx-info-circle text-2xl text-red-600'></i>
+                    <span>
+                        Please Complete the the registration process carefully, there are <b>two</b> segments – <b>'Cine Quiz'</b> and <b>'Cine Story Writing'</b>. Your Quiz will be held based on your selected <b>Movie/Series</b> Bundle.
+                    </span>
+                    </p>
+                <p class="mt-4 flex gap-4">
+                    <i class='bx bx-info-circle text-2xl text-red-600'></i>
+                   <span>
+                    The REGISTRATION FEE IS <b>BDT 200</b> for each segment or both. For payment procedure you can use <b>bKash, Nagad, Rocket</b>.
+                   </span>
+                </p>
+            </div>
+        </section>
         <!-- Login Steps -->
-        <section class="py-32 containerNinish mx-auto px-2">
+        <section class="pt-16 pb-32 containerNinish mx-auto px-2">
             <!-- Form -->
             <form method="post" id="preferenceForm">
                 <div class="bg-white max-w-[900px] mx-auto rounded-md shadow-md p-4">
@@ -90,7 +107,8 @@
                             <div class="step step-1 active">
                                 <div class="stepsBody grid gap-2">
                                     <!-- cineMovie Segment card -->
-                                    <div class="segment cineMovie flex gap-4 items-center justify-center max-w-lg w-full mx-auto" data-category="cineMovie">
+                                    <div class="segment cineMovie flex gap-4 items-center justify-center max-w-lg w-full mx-auto"
+                                        data-category="cineMovie">
                                         <div class="segmentImgBox w-20 p-2 z-10">
                                             <img src="./img/film-reel.png" alt="">
                                         </div>
@@ -100,7 +118,8 @@
                                         </div>
                                     </div>
                                     <!-- cineStory Segment card -->
-                                    <div class="segment cineStory flex gap-4 items-center justify-center max-w-lg w-full mx-auto" data-category="cineStory">
+                                    <div class="segment cineStory flex gap-4 items-center justify-center max-w-lg w-full mx-auto"
+                                        data-category="cineStory">
                                         <div class="segmentImgBox w-20 p-2 z-10">
                                             <img src="./img/book.png" alt="">
                                         </div>
@@ -179,33 +198,37 @@
                             </div>
                             <div class="step step-4">
                                 <div class="stepsBody grid gap-2 my-4 py-4">
-                                    <p class="text-white text-center font-semibold bg-red-700 py-2 rounded-md">The Number Provided is already in use. Try another one.</p>
+                                    <p class="text-white text-center font-semibold bg-red-700 py-2 rounded-md">The
+                                        Number Provided is already in use. Try another one.</p>
                                     <div>
-                                      <label for="phone" class="font-semibold">Enter Your Number</label>
-                                      <!-- Input -->
-                                      <div class="flex mt-2">
-                                        <div class="flex items-center px-2 bg-slate-800 border border-r-0 border-slate-300 rounded-l-md">
-                                          <span class="mt-1 text-slate-200"> +88 </span>
+                                        <label for="phone" class="font-semibold">Enter Your Number</label>
+                                        <!-- Input -->
+                                        <div class="flex mt-2">
+                                            <div
+                                                class="flex items-center px-2 bg-slate-800 border border-r-0 border-slate-300 rounded-l-md">
+                                                <span class="mt-1 text-slate-200"> +88 </span>
+                                            </div>
+                                            <!-- Input Container -->
+                                            <div class="w-full">
+                                                <input type="number" id="phone" name="phone" placeholder="01XXXXXXXXX"
+                                                    class="py-1 rounded-r-md bg-slate-50 border border-gray-300 px-2 text-lg w-full"
+                                                    required />
+                                            </div>
                                         </div>
-                                        <!-- Input Container -->
-                                        <div class="w-full">
-                                          <input type="number" id="phone" name="phone" placeholder="01XXXXXXXXX"
-                                            class="py-1 rounded-r-md bg-slate-50 border border-gray-300 px-2 text-lg w-full" required />
-                                        </div>
-                                      </div>
                                     </div>
                                     <div class="mt-4">
-                                      <label for="dob" class="font-semibold">Enter Your Birth Date</label>
-                                      <!-- Input -->
-                                      <div>
-                                        <!-- Input Container -->
-                                        <div class="w-full">
-                                          <input type="date" id="dob" name="dob"
-                                            class="py-1 rounded-md bg-slate-50 border border-gray-300 px-2 text-lg w-full" required />
+                                        <label for="dob" class="font-semibold">Enter Your Birth Date</label>
+                                        <!-- Input -->
+                                        <div>
+                                            <!-- Input Container -->
+                                            <div class="w-full">
+                                                <input type="date" id="dob" name="dob"
+                                                    class="py-1 rounded-md bg-slate-50 border border-gray-300 px-2 text-lg w-full"
+                                                    required />
+                                            </div>
                                         </div>
-                                      </div>
                                     </div>
-                                  </div>
+                                </div>
                                 <div class="stepFooter flex justify-end gap-2">
                                     <button type="button" class="btn" id="step-4-prev-btn">
                                         <i class='bx bx-left-arrow-alt'></i> Previous
